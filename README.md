@@ -41,6 +41,8 @@ python3 -m venv .venv
 
 访问 `http://服务器公网IP:8080/`，本地测试访问 `http://127.0.0.1:8080/`。8080 需空闲并在安全组放行；原 Nginx 若监听该端口，应先释放。长期运行使用 [systemd 部署步骤](服务部署说明.md#4-启动并设置开机自启)。
 
+完成 systemd 安装后，可在项目目录运行 `bash start.sh` 启动、`bash restart.sh` 重启、`bash stop.sh` 关闭服务。脚本会检查服务所属目录，启动后验证健康状态；无需手动维护 PID。查看日志使用 `sudo journalctl -u kpl-insight -f`，详见[脚本使用说明](服务部署说明.md#41-使用启动重启和关闭脚本)。
+
 首次启动自动生成 `runtime/admin-token`，在服务器读取口令后，在「比赛数据 → 更新服务器数据」中输入。按当前游戏采集，后台显示阶段与日志；成功后发布完整快照，失败保留旧数据。同一时间只执行一个任务。运行数据、缓存和口令都在 Git 忽略的 `runtime/`，不会改写 Git 中的 `dist/*.json`。
 
 这会触发当前公开源采集，不保证源站已经提供全部比赛；德杯时长事实表、世界赛结果接入等原有数据限制仍适用。浏览器导入的 CSV、自选对阵与英雄选择仍保存在当前浏览器。
@@ -97,6 +99,7 @@ python3 update-global-lol-data.py --fetch --base cache/lol/base-enriched.json
 ## 文件
 
 - `server.py` / `update_service.py`：网页服务、更新鉴权、后台采集与原子发布。
+- `start.sh` / `restart.sh` / `stop.sh`：管理已安装的 systemd 服务，共用 `deployment/service-control.sh`。
 - `requirements.txt` / `deployment/kpl-insight.service`：服务依赖与 systemd 配置。
 - `服务部署说明.md`：Git 原目录、IP:8080 访问与页面更新操作说明。
 
