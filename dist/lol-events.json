@@ -1,0 +1,900 @@
+{
+  "fetchedAt": "2026-10-08T14:01:28.691071+08:00",
+  "asOf": "2026-10-08",
+  "timezone": "Asia/Shanghai",
+  "tournaments": [
+    {
+      "id": "worlds",
+      "name": "2026英雄联盟全球总决赛",
+      "year": 2026,
+      "startDate": "2026-10-16",
+      "endDate": "2026-11-15",
+      "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer",
+      "schedule_url": "https://lolesports.com/en-US/leagues/worlds",
+      "notice": "北京时间10月16日开赛，11月15日决赛。当前官方公开赛程读取到40场未开始，其中0场对阵已确认；未抽签配对保持待定。当前为分页窗口，赛程未完整收录。",
+      "teams": [
+        {
+          "code": "AL",
+          "name": "Anyone’s Legend",
+          "region": "LPL",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "BLG",
+          "name": "Bilibili Gaming",
+          "region": "LPL",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "TES",
+          "name": "TOP Esports",
+          "region": "LPL",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "IG",
+          "name": "Shanghai Invictus Gaming Meituan",
+          "region": "LPL",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "GEN",
+          "name": "Gen.G",
+          "region": "LCK",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "HLE",
+          "name": "Hanwha Life Esports",
+          "region": "LCK",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "T1",
+          "name": "T1",
+          "region": "LCK",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "DK",
+          "name": "Dplus Kia",
+          "region": "LCK",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "G2",
+          "name": "G2 Esports",
+          "region": "LEC",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "MKOI",
+          "name": "Movistar KOI",
+          "region": "LEC",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "KC",
+          "name": "Karmine Corp",
+          "region": "LEC",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "TLAW",
+          "name": "Team Liquid Alienware",
+          "region": "LCS",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "LYON",
+          "name": "LYON",
+          "region": "LCS",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "C9",
+          "name": "Cloud9 Kia",
+          "region": "LCS",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "TSW",
+          "name": "Team Secret Whales",
+          "region": "LCP",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "CFO",
+          "name": "CTBC Flying Oyster",
+          "region": "LCP",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "MVK",
+          "name": "MVK Esports",
+          "region": "LCP",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "LOS",
+          "name": "LOS",
+          "region": "CBLOL",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        },
+        {
+          "code": "FUR",
+          "name": "FURIA",
+          "region": "CBLOL",
+          "source_url": "https://lolesports.com/en-SG/news/worlds-2026-primer"
+        }
+      ],
+      "scheduleComplete": false,
+      "confirmedPairings": 0,
+      "official_league_id": "98767975604431411",
+      "official_tournament_id": "115660540725177488"
+    },
+    {
+      "id": "demacia",
+      "name": "2026德玛西亚杯国际邀请赛",
+      "year": 2026,
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-17",
+      "source_url": "https://www.bilibili.com/video/BV1zWh16GEkB/",
+      "supporting_source_url": "https://www.ncsti.gov.cn/kjdt/scyq/bjjjjskfq/jkdt/202608/t20260828_254666.html",
+      "schedule_url": "https://lolesports.com/en-US/leagues/demacia_cup",
+      "notice": "10月3—8日瑞士轮，10月12—15日淘汰赛，10月17日决赛。当前官方公开赛程读取到9场未开始，其中2场对阵已确认；未抽签配对保持待定。赛事赛程已完整收录。",
+      "teams": [
+        {
+          "code": "JDG",
+          "name": "Beijing JDG Esports",
+          "region": "LPL",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "WE",
+          "name": "Xi'an Team WE",
+          "region": "LPL",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "LGD",
+          "name": "LGD GAMING",
+          "region": "LPL",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "KT",
+          "name": "kt Rolster",
+          "region": "LCK",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "BFX",
+          "name": "BNK FEARX",
+          "region": "LCK",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "BRO",
+          "name": "HANJIN BRION",
+          "region": "LCK",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "NAVI",
+          "name": "Natus Vincere",
+          "region": "LEC",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "VIT",
+          "name": "Team Vitality",
+          "region": "LEC",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "SR",
+          "name": "Shopify Rebellion",
+          "region": "LCS",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "FLY",
+          "name": "FlyQuest",
+          "region": "LCS",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "GAM",
+          "name": "GAM Esports",
+          "region": "LCP",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        },
+        {
+          "code": "RED",
+          "name": "RED Kalunga",
+          "region": "CBLOL",
+          "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+        }
+      ],
+      "scheduleComplete": true,
+      "confirmedPairings": 2,
+      "official_league_id": "117126995932274206",
+      "official_tournament_id": "117133773242499009"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "117133830114188936",
+      "game": "lol",
+      "tournament": "demacia",
+      "event": "2026德玛西亚杯国际邀请赛 · Swiss",
+      "date": "2026-10-08T17:00:00+08:00",
+      "teamA": "FLY",
+      "teamB": "RED",
+      "bo": 3,
+      "pending": false,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+    },
+    {
+      "id": "117133830114188940",
+      "game": "lol",
+      "tournament": "demacia",
+      "event": "2026德玛西亚杯国际邀请赛 · Swiss",
+      "date": "2026-10-08T19:00:00+08:00",
+      "teamA": "NAVI",
+      "teamB": "JDG",
+      "bo": 3,
+      "pending": false,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+    },
+    {
+      "id": "117133830110912093",
+      "game": "lol",
+      "tournament": "demacia",
+      "event": "2026德玛西亚杯国际邀请赛 · Quarterfinals",
+      "date": "2026-10-12T14:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Quarterfinals",
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+    },
+    {
+      "id": "117133830110912099",
+      "game": "lol",
+      "tournament": "demacia",
+      "event": "2026德玛西亚杯国际邀请赛 · Quarterfinals",
+      "date": "2026-10-12T17:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Quarterfinals",
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+    },
+    {
+      "id": "117133830110912105",
+      "game": "lol",
+      "tournament": "demacia",
+      "event": "2026德玛西亚杯国际邀请赛 · Quarterfinals",
+      "date": "2026-10-13T14:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Quarterfinals",
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+    },
+    {
+      "id": "117133830110912111",
+      "game": "lol",
+      "tournament": "demacia",
+      "event": "2026德玛西亚杯国际邀请赛 · Quarterfinals",
+      "date": "2026-10-13T17:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Quarterfinals",
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+    },
+    {
+      "id": "117133830110912117",
+      "game": "lol",
+      "tournament": "demacia",
+      "event": "2026德玛西亚杯国际邀请赛 · Semifinals",
+      "date": "2026-10-14T17:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Semifinals",
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+    },
+    {
+      "id": "117133830110912123",
+      "game": "lol",
+      "tournament": "demacia",
+      "event": "2026德玛西亚杯国际邀请赛 · Semifinals",
+      "date": "2026-10-15T17:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Semifinals",
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+    },
+    {
+      "id": "115660588583040710",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Play-Ins",
+      "date": "2026-10-16T02:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Play-Ins",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660588583171786",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Play-Ins",
+      "date": "2026-10-16T07:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Play-Ins",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660588583171790",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Play-Ins",
+      "date": "2026-10-17T02:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Play-Ins",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660588583171794",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Play-Ins",
+      "date": "2026-10-17T07:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Play-Ins",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "117133830110912129",
+      "game": "lol",
+      "tournament": "demacia",
+      "event": "2026德玛西亚杯国际邀请赛 · Finals",
+      "date": "2026-10-17T17:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Finals",
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup"
+    },
+    {
+      "id": "115660588583171798",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Play-Ins",
+      "date": "2026-10-18T02:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Play-Ins",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "116299649498303884",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Play-Ins",
+      "date": "2026-10-19T02:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Play-Ins",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095005",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-24T01:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095007",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-24T02:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095009",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-24T03:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095011",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-24T04:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095013",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-24T05:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095015",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-24T06:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095017",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-24T07:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095019",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-24T08:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095021",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-25T01:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095023",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-25T02:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095025",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-25T03:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095027",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-25T04:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095029",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-25T05:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095031",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-25T06:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095033",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-25T07:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095035",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-25T08:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095045",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-26T01:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095047",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-26T02:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095037",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-26T03:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095041",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-26T06:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095049",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-27T01:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095051",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-27T02:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 1,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095053",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-27T03:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095057",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-27T06:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095061",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-29T04:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095065",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-29T07:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095069",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-30T04:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095073",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-30T07:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095077",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-31T04:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095081",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-10-31T07:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095085",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-11-01T01:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095089",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-11-01T04:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095093",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Swiss",
+      "date": "2026-11-01T07:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 3,
+      "pending": true,
+      "stage": "Swiss",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    },
+    {
+      "id": "115660540726095097",
+      "game": "lol",
+      "tournament": "worlds",
+      "event": "2026英雄联盟全球总决赛 · Quarterfinals",
+      "date": "2026-11-04T06:00:00+08:00",
+      "teamA": null,
+      "teamB": null,
+      "bo": 5,
+      "pending": true,
+      "stage": "Quarterfinals",
+      "source_url": "https://lolesports.com/en-US/leagues/worlds"
+    }
+  ],
+  "coverage": {
+    "worlds": {
+      "fetchedScheduleSlots": 40,
+      "completedSeries": 0,
+      "confirmedPairings": 0,
+      "complete": false,
+      "expectedSeriesByAnnouncedFormat": 46,
+      "observedSeries": 40,
+      "note": "官方HTML分页窗口，未抽签对阵保持空值；逐局统计由独立采集器核验。"
+    },
+    "demacia": {
+      "fetchedScheduleSlots": 9,
+      "completedSeries": 18,
+      "confirmedPairings": 2,
+      "complete": true,
+      "expectedSeriesByAnnouncedFormat": 27,
+      "observedSeries": 27,
+      "note": "官方HTML分页窗口，未抽签对阵保持空值；逐局统计由独立采集器核验。"
+    }
+  },
+  "parsedAt": "2026-10-08T14:01:28.691071+08:00",
+  "sourceSnapshots": [
+    {
+      "source_url": "https://lolesports.com/en-US/leagues/worlds",
+      "path": "worlds-schedule.html",
+      "sha256": "866b2da51a3ed0ae61807c17448f6c4607cee89ce27119f74f20e9a002d4dcfe",
+      "parsedEventCount": 40
+    },
+    {
+      "source_url": "https://lolesports.com/en-US/leagues/demacia_cup",
+      "path": "demacia-schedule.html",
+      "sha256": "21051108e82057827e4313e3b81f38dc2b5b6c2883bce207acdce9fd407a6521",
+      "parsedEventCount": 27
+    }
+  ]
+}

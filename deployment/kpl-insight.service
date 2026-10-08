@@ -1,0 +1,28 @@
+[Unit]
+Description=KPL Insight web and data update service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=kpl-insight
+Group=kpl-insight
+WorkingDirectory=/root/project/ai-lol
+ExecStart=/root/project/ai-lol/.venv/bin/python /root/project/ai-lol/server.py --host 0.0.0.0 --port 8080 --runtime-dir /root/project/ai-lol/runtime
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+KillMode=mixed
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/root/project/ai-lol/runtime
+CapabilityBoundingSet=
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

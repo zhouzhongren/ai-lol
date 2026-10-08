@@ -1,0 +1,2644 @@
+{
+  "version": "16.20.1",
+  "language": "zh_CN",
+  "source_url": "https://ddragon.leagueoflegends.com/cdn/16.20.1/data/zh_CN/champion.json",
+  "fetchedAt": "2026-10-08T06:28:57.499922+00:00",
+  "identity_field": "id",
+  "numeric_identity_field": "key",
+  "role_note": "tags are champion classes, not player positions; draft roles come only from match data.",
+  "champions": [
+    {
+      "id": "Aatrox",
+      "key": 266,
+      "name": "暗裔剑魔",
+      "title": "亚托克斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Aatrox.png",
+      "tags": [
+        "Fighter"
+      ],
+      "historical_picks": 171,
+      "observed_roles": {
+        "jungle": 100,
+        "top": 69,
+        "mid": 1,
+        "bottom": 1
+      }
+    },
+    {
+      "id": "Ahri",
+      "key": 103,
+      "name": "九尾妖狐",
+      "title": "阿狸",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ahri.png",
+      "tags": [
+        "Mage",
+        "Assassin"
+      ],
+      "historical_picks": 345,
+      "observed_roles": {
+        "mid": 345
+      }
+    },
+    {
+      "id": "Akali",
+      "key": 84,
+      "name": "离群之刺",
+      "title": "阿卡丽",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Akali.png",
+      "tags": [
+        "Assassin"
+      ],
+      "historical_picks": 271,
+      "observed_roles": {
+        "mid": 255,
+        "top": 12,
+        "bottom": 4
+      }
+    },
+    {
+      "id": "Akshan",
+      "key": 166,
+      "name": "影哨",
+      "title": "阿克尚",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Akshan.png",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Alistar",
+      "key": 12,
+      "name": "牛头酋长",
+      "title": "阿利斯塔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Alistar.png",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "historical_picks": 359,
+      "observed_roles": {
+        "support": 359
+      }
+    },
+    {
+      "id": "Ambessa",
+      "key": 799,
+      "name": "铁血狼母",
+      "title": "安蓓萨",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ambessa.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 529,
+      "observed_roles": {
+        "top": 470,
+        "jungle": 58,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Amumu",
+      "key": 32,
+      "name": "殇之木乃伊",
+      "title": "阿木木",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Amumu.png",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "support": 3
+      }
+    },
+    {
+      "id": "Anivia",
+      "key": 34,
+      "name": "冰晶凤凰",
+      "title": "艾尼维亚",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Anivia.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 251,
+      "observed_roles": {
+        "mid": 180,
+        "support": 30,
+        "top": 41
+      }
+    },
+    {
+      "id": "Annie",
+      "key": 1,
+      "name": "黑暗之女",
+      "title": "安妮",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Annie.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 284,
+      "observed_roles": {
+        "mid": 281,
+        "support": 1,
+        "top": 2
+      }
+    },
+    {
+      "id": "Aphelios",
+      "key": 523,
+      "name": "残月之肃",
+      "title": "厄斐琉斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Aphelios.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 143,
+      "observed_roles": {
+        "bottom": 143
+      }
+    },
+    {
+      "id": "Ashe",
+      "key": 22,
+      "name": "寒冰射手",
+      "title": "艾希",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ashe.png",
+      "tags": [
+        "Marksman",
+        "Support"
+      ],
+      "historical_picks": 377,
+      "observed_roles": {
+        "bottom": 376,
+        "support": 1
+      }
+    },
+    {
+      "id": "AurelionSol",
+      "key": 136,
+      "name": "铸星龙王",
+      "title": "奥瑞利安·索尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/AurelionSol.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 7,
+      "observed_roles": {
+        "mid": 7
+      }
+    },
+    {
+      "id": "Aurora",
+      "key": 893,
+      "name": "双界灵兔",
+      "title": "阿萝拉",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Aurora.png",
+      "tags": [
+        "Mage",
+        "Assassin"
+      ],
+      "historical_picks": 368,
+      "observed_roles": {
+        "mid": 305,
+        "top": 63
+      }
+    },
+    {
+      "id": "Azir",
+      "key": 268,
+      "name": "沙漠皇帝",
+      "title": "阿兹尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Azir.png",
+      "tags": [
+        "Mage",
+        "Marksman"
+      ],
+      "historical_picks": 349,
+      "observed_roles": {
+        "mid": 349
+      }
+    },
+    {
+      "id": "Bard",
+      "key": 432,
+      "name": "星界游神",
+      "title": "巴德",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Bard.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 500,
+      "observed_roles": {
+        "support": 500
+      }
+    },
+    {
+      "id": "Belveth",
+      "key": 200,
+      "name": "虚空女皇",
+      "title": "卑尔维斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Belveth.png",
+      "tags": [
+        "Fighter"
+      ],
+      "historical_picks": 1,
+      "observed_roles": {
+        "jungle": 1
+      }
+    },
+    {
+      "id": "Blitzcrank",
+      "key": 53,
+      "name": "蒸汽机器人",
+      "title": "布里茨",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Blitzcrank.png",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "historical_picks": 20,
+      "observed_roles": {
+        "support": 20
+      }
+    },
+    {
+      "id": "Brand",
+      "key": 63,
+      "name": "复仇焰魂",
+      "title": "布兰德",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Brand.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 2,
+      "observed_roles": {
+        "top": 1,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Braum",
+      "key": 201,
+      "name": "弗雷尔卓德之心",
+      "title": "布隆",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Braum.png",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "historical_picks": 71,
+      "observed_roles": {
+        "support": 71
+      }
+    },
+    {
+      "id": "Briar",
+      "key": 233,
+      "name": "狂厄蔷薇",
+      "title": "贝蕾亚",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Briar.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Caitlyn",
+      "key": 51,
+      "name": "皮城女警",
+      "title": "凯特琳",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Caitlyn.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 316,
+      "observed_roles": {
+        "bottom": 316
+      }
+    },
+    {
+      "id": "Camille",
+      "key": 164,
+      "name": "青钢影",
+      "title": "卡蜜尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Camille.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 164,
+      "observed_roles": {
+        "top": 55,
+        "support": 109
+      }
+    },
+    {
+      "id": "Cassiopeia",
+      "key": 69,
+      "name": "魔蛇之拥",
+      "title": "卡西奥佩娅",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Cassiopeia.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 288,
+      "observed_roles": {
+        "mid": 262,
+        "top": 3,
+        "bottom": 23
+      }
+    },
+    {
+      "id": "Chogath",
+      "key": 31,
+      "name": "虚空恐惧",
+      "title": "科加斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Chogath.png",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "historical_picks": 34,
+      "observed_roles": {
+        "top": 6,
+        "jungle": 28
+      }
+    },
+    {
+      "id": "Corki",
+      "key": 42,
+      "name": "英勇投弹手",
+      "title": "库奇",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Corki.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 446,
+      "observed_roles": {
+        "bottom": 442,
+        "top": 1,
+        "mid": 3
+      }
+    },
+    {
+      "id": "Darius",
+      "key": 122,
+      "name": "诺克萨斯之手",
+      "title": "德莱厄斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Darius.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 1,
+      "observed_roles": {
+        "jungle": 1
+      }
+    },
+    {
+      "id": "Diana",
+      "key": 131,
+      "name": "皎月女神",
+      "title": "黛安娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Diana.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 4,
+      "observed_roles": {
+        "jungle": 1,
+        "mid": 3
+      }
+    },
+    {
+      "id": "DrMundo",
+      "key": 36,
+      "name": "祖安狂人",
+      "title": "蒙多医生",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/DrMundo.png",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "historical_picks": 126,
+      "observed_roles": {
+        "jungle": 102,
+        "top": 24
+      }
+    },
+    {
+      "id": "Draven",
+      "key": 119,
+      "name": "荣耀行刑官",
+      "title": "德莱文",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Draven.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 13,
+      "observed_roles": {
+        "bottom": 13
+      }
+    },
+    {
+      "id": "Ekko",
+      "key": 245,
+      "name": "时间刺客",
+      "title": "艾克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ekko.png",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "historical_picks": 5,
+      "observed_roles": {
+        "mid": 5
+      }
+    },
+    {
+      "id": "Elise",
+      "key": 60,
+      "name": "蜘蛛女皇",
+      "title": "伊莉丝",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Elise.png",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "historical_picks": 29,
+      "observed_roles": {
+        "support": 29
+      }
+    },
+    {
+      "id": "Evelynn",
+      "key": 28,
+      "name": "痛苦之拥",
+      "title": "伊芙琳",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Evelynn.png",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Ezreal",
+      "key": 81,
+      "name": "探险家",
+      "title": "伊泽瑞尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ezreal.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 619,
+      "observed_roles": {
+        "bottom": 619
+      }
+    },
+    {
+      "id": "Fiddlesticks",
+      "key": 9,
+      "name": "远古恐惧",
+      "title": "费德提克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Fiddlesticks.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Fiora",
+      "key": 114,
+      "name": "无双剑姬",
+      "title": "菲奥娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Fiora.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 2,
+      "observed_roles": {
+        "top": 2
+      }
+    },
+    {
+      "id": "Fizz",
+      "key": 105,
+      "name": "潮汐海灵",
+      "title": "菲兹",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Fizz.png",
+      "tags": [
+        "Assassin",
+        "Fighter"
+      ],
+      "historical_picks": 1,
+      "observed_roles": {
+        "mid": 1
+      }
+    },
+    {
+      "id": "Galio",
+      "key": 3,
+      "name": "正义巨像",
+      "title": "加里奥",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Galio.png",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "historical_picks": 253,
+      "observed_roles": {
+        "mid": 212,
+        "top": 39,
+        "bottom": 1,
+        "support": 1
+      }
+    },
+    {
+      "id": "Gangplank",
+      "key": 41,
+      "name": "海洋之灾",
+      "title": "普朗克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Gangplank.png",
+      "tags": [
+        "Fighter"
+      ],
+      "historical_picks": 5,
+      "observed_roles": {
+        "top": 5
+      }
+    },
+    {
+      "id": "Garen",
+      "key": 86,
+      "name": "德玛西亚之力",
+      "title": "盖伦",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Garen.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "top": 3
+      }
+    },
+    {
+      "id": "Gnar",
+      "key": 150,
+      "name": "迷失之牙",
+      "title": "纳尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Gnar.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 496,
+      "observed_roles": {
+        "top": 494,
+        "jungle": 1,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Gragas",
+      "key": 79,
+      "name": "酒桶",
+      "title": "古拉加斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Gragas.png",
+      "tags": [
+        "Fighter",
+        "Mage"
+      ],
+      "historical_picks": 33,
+      "observed_roles": {
+        "top": 31,
+        "mid": 1,
+        "support": 1
+      }
+    },
+    {
+      "id": "Graves",
+      "key": 104,
+      "name": "法外狂徒",
+      "title": "格雷福斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Graves.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 4,
+      "observed_roles": {
+        "jungle": 4
+      }
+    },
+    {
+      "id": "Gwen",
+      "key": 887,
+      "name": "灵罗娃娃",
+      "title": "格温",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Gwen.png",
+      "tags": [
+        "Fighter"
+      ],
+      "historical_picks": 126,
+      "observed_roles": {
+        "top": 124,
+        "jungle": 2
+      }
+    },
+    {
+      "id": "Hecarim",
+      "key": 120,
+      "name": "战争之影",
+      "title": "赫卡里姆",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Hecarim.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 2,
+      "observed_roles": {
+        "jungle": 2
+      }
+    },
+    {
+      "id": "Heimerdinger",
+      "key": 74,
+      "name": "大发明家",
+      "title": "黑默丁格",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Heimerdinger.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Hwei",
+      "key": 910,
+      "name": "异画师",
+      "title": "彗",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Hwei.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 48,
+      "observed_roles": {
+        "mid": 47,
+        "bottom": 1
+      }
+    },
+    {
+      "id": "Illaoi",
+      "key": 420,
+      "name": "海兽祭司",
+      "title": "俄洛伊",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Illaoi.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 2,
+      "observed_roles": {
+        "top": 2
+      }
+    },
+    {
+      "id": "Irelia",
+      "key": 39,
+      "name": "刀锋舞者",
+      "title": "艾瑞莉娅",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Irelia.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 9,
+      "observed_roles": {
+        "top": 7,
+        "mid": 2
+      }
+    },
+    {
+      "id": "Ivern",
+      "key": 427,
+      "name": "翠神",
+      "title": "艾翁",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ivern.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "jungle": 3
+      }
+    },
+    {
+      "id": "Janna",
+      "key": 40,
+      "name": "风暴之怒",
+      "title": "迦娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Janna.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 2,
+      "observed_roles": {
+        "support": 2
+      }
+    },
+    {
+      "id": "JarvanIV",
+      "key": 59,
+      "name": "德玛西亚皇子",
+      "title": "嘉文四世",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/JarvanIV.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 649,
+      "observed_roles": {
+        "jungle": 648,
+        "support": 1
+      }
+    },
+    {
+      "id": "Jax",
+      "key": 24,
+      "name": "武器大师",
+      "title": "贾克斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Jax.png",
+      "tags": [
+        "Fighter"
+      ],
+      "historical_picks": 146,
+      "observed_roles": {
+        "top": 137,
+        "jungle": 9
+      }
+    },
+    {
+      "id": "Jayce",
+      "key": 126,
+      "name": "未来守护者",
+      "title": "杰斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Jayce.png",
+      "tags": [
+        "Fighter",
+        "Marksman"
+      ],
+      "historical_picks": 423,
+      "observed_roles": {
+        "jungle": 65,
+        "top": 345,
+        "mid": 11,
+        "bottom": 2
+      }
+    },
+    {
+      "id": "Jhin",
+      "key": 202,
+      "name": "戏命师",
+      "title": "烬",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Jhin.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 437,
+      "observed_roles": {
+        "bottom": 437
+      }
+    },
+    {
+      "id": "Jinx",
+      "key": 222,
+      "name": "暴走萝莉",
+      "title": "金克丝",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Jinx.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 34,
+      "observed_roles": {
+        "bottom": 34
+      }
+    },
+    {
+      "id": "KSante",
+      "key": 897,
+      "name": "纳祖芒荣耀",
+      "title": "奎桑提",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/KSante.png",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "historical_picks": 522,
+      "observed_roles": {
+        "top": 520,
+        "mid": 2
+      }
+    },
+    {
+      "id": "Kaisa",
+      "key": 145,
+      "name": "虚空之女",
+      "title": "卡莎",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Kaisa.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 196,
+      "observed_roles": {
+        "bottom": 193,
+        "top": 3
+      }
+    },
+    {
+      "id": "Kalista",
+      "key": 429,
+      "name": "复仇之矛",
+      "title": "卡莉丝塔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Kalista.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 131,
+      "observed_roles": {
+        "bottom": 131
+      }
+    },
+    {
+      "id": "Karma",
+      "key": 43,
+      "name": "天启者",
+      "title": "卡尔玛",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Karma.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 378,
+      "observed_roles": {
+        "support": 377,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Karthus",
+      "key": 30,
+      "name": "死亡颂唱者",
+      "title": "卡尔萨斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Karthus.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Kassadin",
+      "key": 38,
+      "name": "虚空行者",
+      "title": "卡萨丁",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Kassadin.png",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Katarina",
+      "key": 55,
+      "name": "不祥之刃",
+      "title": "卡特琳娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Katarina.png",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Kayle",
+      "key": 10,
+      "name": "正义天使",
+      "title": "凯尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Kayle.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Kayn",
+      "key": 141,
+      "name": "影流之镰",
+      "title": "凯隐",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Kayn.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 1,
+      "observed_roles": {
+        "jungle": 1
+      }
+    },
+    {
+      "id": "Kennen",
+      "key": 85,
+      "name": "狂暴之心",
+      "title": "凯南",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Kennen.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 60,
+      "observed_roles": {
+        "top": 60
+      }
+    },
+    {
+      "id": "Khazix",
+      "key": 121,
+      "name": "虚空掠夺者",
+      "title": "卡兹克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Khazix.png",
+      "tags": [
+        "Assassin"
+      ],
+      "historical_picks": 16,
+      "observed_roles": {
+        "jungle": 16
+      }
+    },
+    {
+      "id": "Kindred",
+      "key": 203,
+      "name": "永猎双子",
+      "title": "千珏",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Kindred.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 5,
+      "observed_roles": {
+        "jungle": 5
+      }
+    },
+    {
+      "id": "Kled",
+      "key": 240,
+      "name": "暴怒骑士",
+      "title": "克烈",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Kled.png",
+      "tags": [
+        "Fighter"
+      ],
+      "historical_picks": 38,
+      "observed_roles": {
+        "top": 38
+      }
+    },
+    {
+      "id": "KogMaw",
+      "key": 96,
+      "name": "深渊巨口",
+      "title": "克格莫",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/KogMaw.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 19,
+      "observed_roles": {
+        "bottom": 18,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Leblanc",
+      "key": 7,
+      "name": "诡术妖姬",
+      "title": "乐芙兰",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Leblanc.png",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "historical_picks": 95,
+      "observed_roles": {
+        "mid": 95
+      }
+    },
+    {
+      "id": "LeeSin",
+      "key": 64,
+      "name": "盲僧",
+      "title": "李青",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/LeeSin.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 348,
+      "observed_roles": {
+        "jungle": 345,
+        "top": 2,
+        "bottom": 1
+      }
+    },
+    {
+      "id": "Leona",
+      "key": 89,
+      "name": "曙光女神",
+      "title": "蕾欧娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Leona.png",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "historical_picks": 182,
+      "observed_roles": {
+        "support": 182
+      }
+    },
+    {
+      "id": "Lillia",
+      "key": 876,
+      "name": "含羞蓓蕾",
+      "title": "莉莉娅",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Lillia.png",
+      "tags": [
+        "Fighter",
+        "Mage"
+      ],
+      "historical_picks": 1,
+      "observed_roles": {
+        "jungle": 1
+      }
+    },
+    {
+      "id": "Lissandra",
+      "key": 127,
+      "name": "冰霜女巫",
+      "title": "丽桑卓",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Lissandra.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 41,
+      "observed_roles": {
+        "support": 1,
+        "mid": 39,
+        "top": 1
+      }
+    },
+    {
+      "id": "Locke",
+      "key": 805,
+      "name": "灰烬驱魔人",
+      "title": "洛克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Locke.png",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "historical_picks": 88,
+      "observed_roles": {
+        "mid": 85,
+        "bottom": 3
+      }
+    },
+    {
+      "id": "Lucian",
+      "key": 236,
+      "name": "圣枪游侠",
+      "title": "卢锡安",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Lucian.png",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "historical_picks": 405,
+      "observed_roles": {
+        "bottom": 405
+      }
+    },
+    {
+      "id": "Lulu",
+      "key": 117,
+      "name": "仙灵女巫",
+      "title": "璐璐",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Lulu.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 442,
+      "observed_roles": {
+        "support": 442
+      }
+    },
+    {
+      "id": "Lux",
+      "key": 99,
+      "name": "光辉女郎",
+      "title": "拉克丝",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Lux.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 39,
+      "observed_roles": {
+        "support": 39
+      }
+    },
+    {
+      "id": "Malphite",
+      "key": 54,
+      "name": "熔岩巨兽",
+      "title": "墨菲特",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Malphite.png",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "historical_picks": 64,
+      "observed_roles": {
+        "jungle": 45,
+        "top": 18,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Malzahar",
+      "key": 90,
+      "name": "虚空先知",
+      "title": "玛尔扎哈",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Malzahar.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 5,
+      "observed_roles": {
+        "mid": 5
+      }
+    },
+    {
+      "id": "Maokai",
+      "key": 57,
+      "name": "扭曲树精",
+      "title": "茂凯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Maokai.png",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "historical_picks": 88,
+      "observed_roles": {
+        "jungle": 87,
+        "support": 1
+      }
+    },
+    {
+      "id": "MasterYi",
+      "key": 11,
+      "name": "无极剑圣",
+      "title": "易",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/MasterYi.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Mel",
+      "key": 800,
+      "name": "流光镜影",
+      "title": "梅尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Mel.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 117,
+      "observed_roles": {
+        "support": 2,
+        "mid": 66,
+        "bottom": 49
+      }
+    },
+    {
+      "id": "Milio",
+      "key": 902,
+      "name": "明烛",
+      "title": "米利欧",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Milio.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 323,
+      "observed_roles": {
+        "support": 323
+      }
+    },
+    {
+      "id": "MissFortune",
+      "key": 21,
+      "name": "赏金猎人",
+      "title": "厄运小姐",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/MissFortune.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 179,
+      "observed_roles": {
+        "bottom": 179
+      }
+    },
+    {
+      "id": "MonkeyKing",
+      "key": 62,
+      "name": "齐天大圣",
+      "title": "孙悟空",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/MonkeyKing.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 393,
+      "observed_roles": {
+        "jungle": 392,
+        "top": 1
+      }
+    },
+    {
+      "id": "Mordekaiser",
+      "key": 82,
+      "name": "铁铠冥魂",
+      "title": "莫德凯撒",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Mordekaiser.png",
+      "tags": [
+        "Fighter",
+        "Mage"
+      ],
+      "historical_picks": 7,
+      "observed_roles": {
+        "top": 7
+      }
+    },
+    {
+      "id": "Morgana",
+      "key": 25,
+      "name": "堕落天使",
+      "title": "莫甘娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Morgana.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "mid": 1,
+        "support": 2
+      }
+    },
+    {
+      "id": "Naafiri",
+      "key": 950,
+      "name": "百裂冥犬",
+      "title": "纳亚菲利",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Naafiri.png",
+      "tags": [
+        "Assassin",
+        "Fighter"
+      ],
+      "historical_picks": 333,
+      "observed_roles": {
+        "jungle": 325,
+        "top": 6,
+        "bottom": 2
+      }
+    },
+    {
+      "id": "Nami",
+      "key": 267,
+      "name": "唤潮鲛姬",
+      "title": "娜美",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Nami.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 281,
+      "observed_roles": {
+        "support": 281
+      }
+    },
+    {
+      "id": "Nasus",
+      "key": 75,
+      "name": "沙漠死神",
+      "title": "内瑟斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Nasus.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 15,
+      "observed_roles": {
+        "top": 7,
+        "jungle": 8
+      }
+    },
+    {
+      "id": "Nautilus",
+      "key": 111,
+      "name": "深海泰坦",
+      "title": "诺提勒斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Nautilus.png",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "historical_picks": 438,
+      "observed_roles": {
+        "support": 435,
+        "jungle": 3
+      }
+    },
+    {
+      "id": "Neeko",
+      "key": 518,
+      "name": "万花通灵",
+      "title": "妮蔻",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Neeko.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 328,
+      "observed_roles": {
+        "support": 327,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Nidalee",
+      "key": 76,
+      "name": "狂野女猎手",
+      "title": "奈德丽",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Nidalee.png",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "historical_picks": 23,
+      "observed_roles": {
+        "support": 1,
+        "jungle": 15,
+        "top": 7
+      }
+    },
+    {
+      "id": "Nilah",
+      "key": 895,
+      "name": "不羁之悦",
+      "title": "尼菈",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Nilah.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Nocturne",
+      "key": 56,
+      "name": "永恒梦魇",
+      "title": "魔腾",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Nocturne.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 342,
+      "observed_roles": {
+        "jungle": 342
+      }
+    },
+    {
+      "id": "Nunu",
+      "key": 20,
+      "name": "雪原双子",
+      "title": "努努和威朗普",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Nunu.png",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Olaf",
+      "key": 2,
+      "name": "狂战士",
+      "title": "奥拉夫",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Olaf.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 210,
+      "observed_roles": {
+        "top": 184,
+        "jungle": 26
+      }
+    },
+    {
+      "id": "Orianna",
+      "key": 61,
+      "name": "发条魔灵",
+      "title": "奥莉安娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Orianna.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 445,
+      "observed_roles": {
+        "mid": 443,
+        "bottom": 2
+      }
+    },
+    {
+      "id": "Ornn",
+      "key": 516,
+      "name": "山隐之焰",
+      "title": "奥恩",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ornn.png",
+      "tags": [
+        "Tank"
+      ],
+      "historical_picks": 115,
+      "observed_roles": {
+        "top": 112,
+        "jungle": 2,
+        "bottom": 1
+      }
+    },
+    {
+      "id": "Pantheon",
+      "key": 80,
+      "name": "不屈之枪",
+      "title": "潘森",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Pantheon.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 529,
+      "observed_roles": {
+        "support": 11,
+        "jungle": 518
+      }
+    },
+    {
+      "id": "Poppy",
+      "key": 78,
+      "name": "圣锤之毅",
+      "title": "波比",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Poppy.png",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "historical_picks": 144,
+      "observed_roles": {
+        "support": 54,
+        "jungle": 75,
+        "top": 15
+      }
+    },
+    {
+      "id": "Pyke",
+      "key": 555,
+      "name": "血港鬼影",
+      "title": "派克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Pyke.png",
+      "tags": [
+        "Support",
+        "Assassin"
+      ],
+      "historical_picks": 48,
+      "observed_roles": {
+        "support": 48
+      }
+    },
+    {
+      "id": "Qiyana",
+      "key": 246,
+      "name": "元素女皇",
+      "title": "奇亚娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Qiyana.png",
+      "tags": [
+        "Assassin"
+      ],
+      "historical_picks": 147,
+      "observed_roles": {
+        "jungle": 147
+      }
+    },
+    {
+      "id": "Quinn",
+      "key": 133,
+      "name": "德玛西亚之翼",
+      "title": "奎因",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Quinn.png",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "historical_picks": 2,
+      "observed_roles": {
+        "top": 2
+      }
+    },
+    {
+      "id": "Rakan",
+      "key": 497,
+      "name": "幻翎",
+      "title": "洛",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Rakan.png",
+      "tags": [
+        "Support"
+      ],
+      "historical_picks": 304,
+      "observed_roles": {
+        "support": 304
+      }
+    },
+    {
+      "id": "Rammus",
+      "key": 33,
+      "name": "披甲龙龟",
+      "title": "拉莫斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Rammus.png",
+      "tags": [
+        "Tank"
+      ],
+      "historical_picks": 2,
+      "observed_roles": {
+        "support": 1,
+        "jungle": 1
+      }
+    },
+    {
+      "id": "RekSai",
+      "key": 421,
+      "name": "虚空遁地兽",
+      "title": "雷克塞",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/RekSai.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 69,
+      "observed_roles": {
+        "top": 60,
+        "jungle": 9
+      }
+    },
+    {
+      "id": "Rell",
+      "key": 526,
+      "name": "镕铁少女",
+      "title": "芮尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Rell.png",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "historical_picks": 235,
+      "observed_roles": {
+        "support": 235
+      }
+    },
+    {
+      "id": "Renata",
+      "key": 888,
+      "name": "炼金男爵",
+      "title": "烈娜塔 · 戈拉斯克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Renata.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 142,
+      "observed_roles": {
+        "support": 142
+      }
+    },
+    {
+      "id": "Renekton",
+      "key": 58,
+      "name": "荒漠屠夫",
+      "title": "雷克顿",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Renekton.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 417,
+      "observed_roles": {
+        "top": 416,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Rengar",
+      "key": 107,
+      "name": "傲之追猎者",
+      "title": "雷恩加尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Rengar.png",
+      "tags": [
+        "Assassin",
+        "Fighter"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Riven",
+      "key": 92,
+      "name": "放逐之刃",
+      "title": "锐雯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Riven.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 1,
+      "observed_roles": {
+        "top": 1
+      }
+    },
+    {
+      "id": "Rumble",
+      "key": 68,
+      "name": "机械公敌",
+      "title": "兰博",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Rumble.png",
+      "tags": [
+        "Fighter",
+        "Mage"
+      ],
+      "historical_picks": 643,
+      "observed_roles": {
+        "top": 632,
+        "jungle": 2,
+        "support": 2,
+        "mid": 7
+      }
+    },
+    {
+      "id": "Ryze",
+      "key": 13,
+      "name": "符文法师",
+      "title": "瑞兹",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ryze.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 697,
+      "observed_roles": {
+        "mid": 691,
+        "top": 6
+      }
+    },
+    {
+      "id": "Samira",
+      "key": 360,
+      "name": "沙漠玫瑰",
+      "title": "莎弥拉",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Samira.png",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "historical_picks": 2,
+      "observed_roles": {
+        "bottom": 2
+      }
+    },
+    {
+      "id": "Sejuani",
+      "key": 113,
+      "name": "北地之怒",
+      "title": "瑟庄妮",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Sejuani.png",
+      "tags": [
+        "Tank"
+      ],
+      "historical_picks": 71,
+      "observed_roles": {
+        "jungle": 69,
+        "top": 2
+      }
+    },
+    {
+      "id": "Senna",
+      "key": 235,
+      "name": "涤魂圣枪",
+      "title": "赛娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Senna.png",
+      "tags": [
+        "Support",
+        "Marksman"
+      ],
+      "historical_picks": 53,
+      "observed_roles": {
+        "bottom": 50,
+        "support": 3
+      }
+    },
+    {
+      "id": "Seraphine",
+      "key": 147,
+      "name": "星籁歌姬",
+      "title": "萨勒芬妮",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Seraphine.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 418,
+      "observed_roles": {
+        "support": 409,
+        "bottom": 9
+      }
+    },
+    {
+      "id": "Sett",
+      "key": 875,
+      "name": "腕豪",
+      "title": "瑟提",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Sett.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "top": 3
+      }
+    },
+    {
+      "id": "Shaco",
+      "key": 35,
+      "name": "恶魔小丑",
+      "title": "萨科",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Shaco.png",
+      "tags": [
+        "Assassin"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Shen",
+      "key": 98,
+      "name": "暮光之眼",
+      "title": "慎",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Shen.png",
+      "tags": [
+        "Tank"
+      ],
+      "historical_picks": 205,
+      "observed_roles": {
+        "support": 161,
+        "top": 39,
+        "jungle": 5
+      }
+    },
+    {
+      "id": "Shyvana",
+      "key": 102,
+      "name": "龙血武姬",
+      "title": "希瓦娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Shyvana.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 26,
+      "observed_roles": {
+        "jungle": 22,
+        "top": 4
+      }
+    },
+    {
+      "id": "Singed",
+      "key": 27,
+      "name": "炼金术士",
+      "title": "辛吉德",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Singed.png",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Sion",
+      "key": 14,
+      "name": "亡灵战神",
+      "title": "赛恩",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Sion.png",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "historical_picks": 394,
+      "observed_roles": {
+        "top": 388,
+        "mid": 4,
+        "bottom": 2
+      }
+    },
+    {
+      "id": "Sivir",
+      "key": 15,
+      "name": "战争女神",
+      "title": "希维尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Sivir.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 285,
+      "observed_roles": {
+        "bottom": 285
+      }
+    },
+    {
+      "id": "Skarner",
+      "key": 72,
+      "name": "上古领主",
+      "title": "斯卡纳",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Skarner.png",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "historical_picks": 211,
+      "observed_roles": {
+        "jungle": 201,
+        "support": 9,
+        "top": 1
+      }
+    },
+    {
+      "id": "Smolder",
+      "key": 901,
+      "name": "炽炎雏龙",
+      "title": "斯莫德",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Smolder.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 15,
+      "observed_roles": {
+        "bottom": 10,
+        "mid": 5
+      }
+    },
+    {
+      "id": "Sona",
+      "key": 37,
+      "name": "琴瑟仙女",
+      "title": "娑娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Sona.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "support": 3
+      }
+    },
+    {
+      "id": "Soraka",
+      "key": 16,
+      "name": "众星之子",
+      "title": "索拉卡",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Soraka.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 5,
+      "observed_roles": {
+        "support": 5
+      }
+    },
+    {
+      "id": "Swain",
+      "key": 50,
+      "name": "诺克萨斯统领",
+      "title": "斯维因",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Swain.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 12,
+      "observed_roles": {
+        "mid": 8,
+        "top": 4
+      }
+    },
+    {
+      "id": "Sylas",
+      "key": 517,
+      "name": "解脱者",
+      "title": "塞拉斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Sylas.png",
+      "tags": [
+        "Mage",
+        "Assassin"
+      ],
+      "historical_picks": 161,
+      "observed_roles": {
+        "jungle": 8,
+        "mid": 142,
+        "top": 9,
+        "bottom": 2
+      }
+    },
+    {
+      "id": "Syndra",
+      "key": 134,
+      "name": "暗黑元首",
+      "title": "辛德拉",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Syndra.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 289,
+      "observed_roles": {
+        "mid": 266,
+        "bottom": 23
+      }
+    },
+    {
+      "id": "TahmKench",
+      "key": 223,
+      "name": "河流之王",
+      "title": "塔姆",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/TahmKench.png",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "historical_picks": 8,
+      "observed_roles": {
+        "support": 8
+      }
+    },
+    {
+      "id": "Taliyah",
+      "key": 163,
+      "name": "岩雀",
+      "title": "塔莉垭",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Taliyah.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 299,
+      "observed_roles": {
+        "mid": 283,
+        "bottom": 16
+      }
+    },
+    {
+      "id": "Talon",
+      "key": 91,
+      "name": "刀锋之影",
+      "title": "泰隆",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Talon.png",
+      "tags": [
+        "Assassin"
+      ],
+      "historical_picks": 1,
+      "observed_roles": {
+        "jungle": 1
+      }
+    },
+    {
+      "id": "Taric",
+      "key": 44,
+      "name": "瓦洛兰之盾",
+      "title": "塔里克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Taric.png",
+      "tags": [
+        "Support",
+        "Tank"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "support": 3
+      }
+    },
+    {
+      "id": "Teemo",
+      "key": 17,
+      "name": "迅捷斥候",
+      "title": "提莫",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Teemo.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Thresh",
+      "key": 412,
+      "name": "魂锁典狱长",
+      "title": "锤石",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Thresh.png",
+      "tags": [
+        "Support",
+        "Tank"
+      ],
+      "historical_picks": 83,
+      "observed_roles": {
+        "support": 83
+      }
+    },
+    {
+      "id": "Tristana",
+      "key": 18,
+      "name": "麦林炮手",
+      "title": "崔丝塔娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Tristana.png",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "historical_picks": 46,
+      "observed_roles": {
+        "bottom": 14,
+        "mid": 16,
+        "top": 16
+      }
+    },
+    {
+      "id": "Trundle",
+      "key": 48,
+      "name": "巨魔之王",
+      "title": "特朗德尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Trundle.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 220,
+      "observed_roles": {
+        "jungle": 210,
+        "top": 10
+      }
+    },
+    {
+      "id": "Tryndamere",
+      "key": 23,
+      "name": "蛮族之王",
+      "title": "泰达米尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Tryndamere.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 4,
+      "observed_roles": {
+        "top": 4
+      }
+    },
+    {
+      "id": "TwistedFate",
+      "key": 4,
+      "name": "卡牌大师",
+      "title": "崔斯特",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/TwistedFate.png",
+      "tags": [
+        "Mage",
+        "Marksman"
+      ],
+      "historical_picks": 161,
+      "observed_roles": {
+        "mid": 128,
+        "top": 33
+      }
+    },
+    {
+      "id": "Twitch",
+      "key": 29,
+      "name": "瘟疫之源",
+      "title": "图奇",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Twitch.png",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Udyr",
+      "key": 77,
+      "name": "兽灵行者",
+      "title": "乌迪尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Udyr.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 7,
+      "observed_roles": {
+        "top": 7
+      }
+    },
+    {
+      "id": "Urgot",
+      "key": 6,
+      "name": "无畏战车",
+      "title": "厄加特",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Urgot.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 4,
+      "observed_roles": {
+        "top": 4
+      }
+    },
+    {
+      "id": "Varus",
+      "key": 110,
+      "name": "惩戒之箭",
+      "title": "韦鲁斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Varus.png",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "historical_picks": 382,
+      "observed_roles": {
+        "bottom": 315,
+        "top": 67
+      }
+    },
+    {
+      "id": "Vayne",
+      "key": 67,
+      "name": "暗夜猎手",
+      "title": "薇恩",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Vayne.png",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "historical_picks": 90,
+      "observed_roles": {
+        "top": 86,
+        "bottom": 3,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Veigar",
+      "key": 45,
+      "name": "邪恶小法师",
+      "title": "维迦",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Veigar.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 2,
+      "observed_roles": {
+        "mid": 2
+      }
+    },
+    {
+      "id": "Velkoz",
+      "key": 161,
+      "name": "虚空之眼",
+      "title": "维克兹",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Velkoz.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "bottom": 2,
+        "support": 1
+      }
+    },
+    {
+      "id": "Vex",
+      "key": 711,
+      "name": "愁云使者",
+      "title": "薇古丝",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Vex.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 7,
+      "observed_roles": {
+        "mid": 7
+      }
+    },
+    {
+      "id": "Vi",
+      "key": 254,
+      "name": "皮城执法官",
+      "title": "蔚",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Vi.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 527,
+      "observed_roles": {
+        "jungle": 525,
+        "top": 1,
+        "support": 1
+      }
+    },
+    {
+      "id": "Viego",
+      "key": 234,
+      "name": "破败之王",
+      "title": "佛耶戈",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Viego.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 9,
+      "observed_roles": {
+        "jungle": 9
+      }
+    },
+    {
+      "id": "Viktor",
+      "key": 112,
+      "name": "奥术先驱",
+      "title": "维克托",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Viktor.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 321,
+      "observed_roles": {
+        "mid": 281,
+        "bottom": 40
+      }
+    },
+    {
+      "id": "Vladimir",
+      "key": 8,
+      "name": "猩红收割者",
+      "title": "弗拉基米尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Vladimir.png",
+      "tags": [
+        "Mage",
+        "Fighter"
+      ],
+      "historical_picks": 6,
+      "observed_roles": {
+        "top": 2,
+        "bottom": 4
+      }
+    },
+    {
+      "id": "Volibear",
+      "key": 106,
+      "name": "不灭狂雷",
+      "title": "沃利贝尔",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Volibear.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 23,
+      "observed_roles": {
+        "top": 20,
+        "jungle": 3
+      }
+    },
+    {
+      "id": "Warwick",
+      "key": 19,
+      "name": "祖安怒兽",
+      "title": "沃里克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Warwick.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "jungle": 1,
+        "top": 2
+      }
+    },
+    {
+      "id": "Xayah",
+      "key": 498,
+      "name": "逆羽",
+      "title": "霞",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Xayah.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 150,
+      "observed_roles": {
+        "bottom": 150
+      }
+    },
+    {
+      "id": "Xerath",
+      "key": 101,
+      "name": "远古巫灵",
+      "title": "泽拉斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Xerath.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 17,
+      "observed_roles": {
+        "mid": 3,
+        "bottom": 14
+      }
+    },
+    {
+      "id": "XinZhao",
+      "key": 5,
+      "name": "德邦总管",
+      "title": "赵信",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/XinZhao.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 572,
+      "observed_roles": {
+        "jungle": 571,
+        "mid": 1
+      }
+    },
+    {
+      "id": "Yasuo",
+      "key": 157,
+      "name": "疾风剑豪",
+      "title": "亚索",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Yasuo.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 15,
+      "observed_roles": {
+        "top": 10,
+        "mid": 4,
+        "bottom": 1
+      }
+    },
+    {
+      "id": "Yone",
+      "key": 777,
+      "name": "封魔剑魂",
+      "title": "永恩",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Yone.png",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "historical_picks": 143,
+      "observed_roles": {
+        "mid": 136,
+        "top": 7
+      }
+    },
+    {
+      "id": "Yorick",
+      "key": 83,
+      "name": "牧魂人",
+      "title": "约里克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Yorick.png",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "historical_picks": 186,
+      "observed_roles": {
+        "top": 186
+      }
+    },
+    {
+      "id": "Yunara",
+      "key": 804,
+      "name": "不破之誓",
+      "title": "芸阿娜",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Yunara.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 529,
+      "observed_roles": {
+        "bottom": 529
+      }
+    },
+    {
+      "id": "Yuumi",
+      "key": 350,
+      "name": "魔法猫咪",
+      "title": "悠米",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Yuumi.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 45,
+      "observed_roles": {
+        "support": 45
+      }
+    },
+    {
+      "id": "Zaahen",
+      "key": 904,
+      "name": "不落魔锋",
+      "title": "亚恒",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Zaahen.png",
+      "tags": [
+        "Fighter"
+      ],
+      "historical_picks": 178,
+      "observed_roles": {
+        "top": 130,
+        "support": 1,
+        "jungle": 47
+      }
+    },
+    {
+      "id": "Zac",
+      "key": 154,
+      "name": "生化魔人",
+      "title": "扎克",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Zac.png",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "jungle": 3
+      }
+    },
+    {
+      "id": "Zed",
+      "key": 238,
+      "name": "影流之主",
+      "title": "劫",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Zed.png",
+      "tags": [
+        "Assassin"
+      ],
+      "historical_picks": 3,
+      "observed_roles": {
+        "mid": 2,
+        "jungle": 1
+      }
+    },
+    {
+      "id": "Zeri",
+      "key": 221,
+      "name": "祖安花火",
+      "title": "泽丽",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Zeri.png",
+      "tags": [
+        "Marksman"
+      ],
+      "historical_picks": 60,
+      "observed_roles": {
+        "bottom": 59,
+        "top": 1
+      }
+    },
+    {
+      "id": "Ziggs",
+      "key": 115,
+      "name": "爆破鬼才",
+      "title": "吉格斯",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ziggs.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 160,
+      "observed_roles": {
+        "bottom": 144,
+        "mid": 16
+      }
+    },
+    {
+      "id": "Zilean",
+      "key": 26,
+      "name": "时光守护者",
+      "title": "基兰",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Zilean.png",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "historical_picks": 0,
+      "observed_roles": {}
+    },
+    {
+      "id": "Zoe",
+      "key": 142,
+      "name": "暮光星灵",
+      "title": "佐伊",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Zoe.png",
+      "tags": [
+        "Mage"
+      ],
+      "historical_picks": 51,
+      "observed_roles": {
+        "mid": 51
+      }
+    },
+    {
+      "id": "Zyra",
+      "key": 143,
+      "name": "荆棘之兴",
+      "title": "婕拉",
+      "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Zyra.png",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "historical_picks": 6,
+      "observed_roles": {
+        "jungle": 4,
+        "mid": 2
+      }
+    }
+  ],
+  "counts_updated_at": "2026-10-08T07:15:32.772070+00:00"
+}

@@ -1,0 +1,648 @@
+[
+  {
+    "id": 83447,
+    "map": 1,
+    "date": "2026-10-03",
+    "duration_sec": 2069,
+    "teams": [
+      {
+        "name": "RED Canids",
+        "result": "WIN",
+        "kills": 16
+      },
+      {
+        "name": "Natus Vincere",
+        "result": "LOSS",
+        "kills": 3
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83447/page-game/"
+  },
+  {
+    "id": 83448,
+    "map": 1,
+    "date": "2026-10-03",
+    "duration_sec": 1418,
+    "teams": [
+      {
+        "name": "FlyQuest",
+        "result": "LOSS",
+        "kills": 2
+      },
+      {
+        "name": "LGD Gaming",
+        "result": "WIN",
+        "kills": 22
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83448/page-game/"
+  },
+  {
+    "id": 83449,
+    "map": 1,
+    "date": "2026-10-03",
+    "duration_sec": 1644,
+    "teams": [
+      {
+        "name": "KT Rolster",
+        "result": "WIN",
+        "kills": 21
+      },
+      {
+        "name": "Shopify Rebellion",
+        "result": "LOSS",
+        "kills": 11
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83449/page-game/"
+  },
+  {
+    "id": 83450,
+    "map": 1,
+    "date": "2026-10-03",
+    "duration_sec": 1508,
+    "teams": [
+      {
+        "name": "BNK FearX",
+        "result": "WIN",
+        "kills": 15
+      },
+      {
+        "name": "Team Vitality",
+        "result": "LOSS",
+        "kills": 8
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83450/page-game/"
+  },
+  {
+    "id": 83451,
+    "map": 1,
+    "date": "2026-10-03",
+    "duration_sec": 1460,
+    "teams": [
+      {
+        "name": "Team WE",
+        "result": "WIN",
+        "kills": 17
+      },
+      {
+        "name": "GAM Esports",
+        "result": "LOSS",
+        "kills": 4
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83451/page-game/"
+  },
+  {
+    "id": 83452,
+    "map": 1,
+    "date": "2026-10-03",
+    "duration_sec": 2246,
+    "teams": [
+      {
+        "name": "JD Gaming",
+        "result": "LOSS",
+        "kills": 10
+      },
+      {
+        "name": "HANJIN BRION",
+        "result": "WIN",
+        "kills": 21
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83452/page-game/"
+  },
+  {
+    "id": 83453,
+    "map": 1,
+    "date": "2026-10-04",
+    "duration_sec": 1462,
+    "teams": [
+      {
+        "name": "BNK FearX",
+        "result": "WIN",
+        "kills": 15
+      },
+      {
+        "name": "LGD Gaming",
+        "result": "LOSS",
+        "kills": 6
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83453/page-game/"
+  },
+  {
+    "id": 83454,
+    "map": 2,
+    "date": "2026-10-04",
+    "duration_sec": 2335,
+    "teams": [
+      {
+        "name": "BNK FearX",
+        "result": "LOSS",
+        "kills": 19
+      },
+      {
+        "name": "LGD Gaming",
+        "result": "WIN",
+        "kills": 29
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83454/page-game/"
+  },
+  {
+    "id": 83455,
+    "map": 3,
+    "date": "2026-10-04",
+    "duration_sec": 1656,
+    "teams": [
+      {
+        "name": "LGD Gaming",
+        "result": "LOSS",
+        "kills": 8
+      },
+      {
+        "name": "BNK FearX",
+        "result": "WIN",
+        "kills": 22
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83455/page-game/"
+  },
+  {
+    "id": 83456,
+    "map": 1,
+    "date": "2026-10-04",
+    "duration_sec": 1685,
+    "teams": [
+      {
+        "name": "KT Rolster",
+        "result": "WIN",
+        "kills": 18
+      },
+      {
+        "name": "RED Canids",
+        "result": "LOSS",
+        "kills": 3
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83456/page-game/"
+  },
+  {
+    "id": 83457,
+    "map": 2,
+    "date": "2026-10-04",
+    "duration_sec": 1380,
+    "teams": [
+      {
+        "name": "KT Rolster",
+        "result": "WIN",
+        "kills": 29
+      },
+      {
+        "name": "RED Canids",
+        "result": "LOSS",
+        "kills": 3
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83457/page-game/"
+  },
+  {
+    "id": 83459,
+    "map": 1,
+    "date": "2026-10-04",
+    "duration_sec": 2142,
+    "teams": [
+      {
+        "name": "Team WE",
+        "result": "WIN",
+        "kills": 13
+      },
+      {
+        "name": "HANJIN BRION",
+        "result": "LOSS",
+        "kills": 9
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83459/page-game/"
+  },
+  {
+    "id": 83460,
+    "map": 2,
+    "date": "2026-10-04",
+    "duration_sec": 1661,
+    "teams": [
+      {
+        "name": "Team WE",
+        "result": "LOSS",
+        "kills": 4
+      },
+      {
+        "name": "HANJIN BRION",
+        "result": "WIN",
+        "kills": 15
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83460/page-game/"
+  },
+  {
+    "id": 83461,
+    "map": 3,
+    "date": "2026-10-04",
+    "duration_sec": 1711,
+    "teams": [
+      {
+        "name": "Team WE",
+        "result": "WIN",
+        "kills": 16
+      },
+      {
+        "name": "HANJIN BRION",
+        "result": "LOSS",
+        "kills": 10
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83461/page-game/"
+  },
+  {
+    "id": 83462,
+    "map": 1,
+    "date": "2026-10-05",
+    "duration_sec": 1557,
+    "teams": [
+      {
+        "name": "Team Vitality",
+        "result": "WIN",
+        "kills": 18
+      },
+      {
+        "name": "GAM Esports",
+        "result": "LOSS",
+        "kills": 9
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83462/page-game/"
+  },
+  {
+    "id": 83463,
+    "map": 2,
+    "date": "2026-10-05",
+    "duration_sec": 1733,
+    "teams": [
+      {
+        "name": "Team Vitality",
+        "result": "WIN",
+        "kills": 28
+      },
+      {
+        "name": "GAM Esports",
+        "result": "LOSS",
+        "kills": 15
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83463/page-game/"
+  },
+  {
+    "id": 83465,
+    "map": 1,
+    "date": "2026-10-05",
+    "duration_sec": 2168,
+    "teams": [
+      {
+        "name": "FlyQuest",
+        "result": "LOSS",
+        "kills": 15
+      },
+      {
+        "name": "Natus Vincere",
+        "result": "WIN",
+        "kills": 17
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83465/page-game/"
+  },
+  {
+    "id": 83466,
+    "map": 2,
+    "date": "2026-10-05",
+    "duration_sec": 2066,
+    "teams": [
+      {
+        "name": "FlyQuest",
+        "result": "LOSS",
+        "kills": 15
+      },
+      {
+        "name": "Natus Vincere",
+        "result": "WIN",
+        "kills": 24
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83466/page-game/"
+  },
+  {
+    "id": 83468,
+    "map": 1,
+    "date": "2026-10-05",
+    "duration_sec": 1788,
+    "teams": [
+      {
+        "name": "JD Gaming",
+        "result": "WIN",
+        "kills": 12
+      },
+      {
+        "name": "Shopify Rebellion",
+        "result": "LOSS",
+        "kills": 2
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83468/page-game/"
+  },
+  {
+    "id": 83469,
+    "map": 2,
+    "date": "2026-10-05",
+    "duration_sec": 1552,
+    "teams": [
+      {
+        "name": "JD Gaming",
+        "result": "WIN",
+        "kills": 20
+      },
+      {
+        "name": "Shopify Rebellion",
+        "result": "LOSS",
+        "kills": 7
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83469/page-game/"
+  },
+  {
+    "id": 83520,
+    "map": 1,
+    "date": "2026-10-06",
+    "duration_sec": 2153,
+    "teams": [
+      {
+        "name": "HANJIN BRION",
+        "result": "LOSS",
+        "kills": 14
+      },
+      {
+        "name": "Natus Vincere",
+        "result": "WIN",
+        "kills": 23
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83520/page-game/"
+  },
+  {
+    "id": 83521,
+    "map": 2,
+    "date": "2026-10-06",
+    "duration_sec": 1887,
+    "teams": [
+      {
+        "name": "HANJIN BRION",
+        "result": "WIN",
+        "kills": 15
+      },
+      {
+        "name": "Natus Vincere",
+        "result": "LOSS",
+        "kills": 12
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83521/page-game/"
+  },
+  {
+    "id": 83522,
+    "map": 3,
+    "date": "2026-10-06",
+    "duration_sec": 1450,
+    "teams": [
+      {
+        "name": "HANJIN BRION",
+        "result": "WIN",
+        "kills": 19
+      },
+      {
+        "name": "Natus Vincere",
+        "result": "LOSS",
+        "kills": 4
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83522/page-game/"
+  },
+  {
+    "id": 83523,
+    "map": 1,
+    "date": "2026-10-06",
+    "duration_sec": 1792,
+    "teams": [
+      {
+        "name": "RED Canids",
+        "result": "LOSS",
+        "kills": 9
+      },
+      {
+        "name": "Team Vitality",
+        "result": "WIN",
+        "kills": 19
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83523/page-game/"
+  },
+  {
+    "id": 83524,
+    "map": 2,
+    "date": "2026-10-06",
+    "duration_sec": 1982,
+    "teams": [
+      {
+        "name": "Team Vitality",
+        "result": "WIN",
+        "kills": 17
+      },
+      {
+        "name": "RED Canids",
+        "result": "LOSS",
+        "kills": 10
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83524/page-game/"
+  },
+  {
+    "id": 83526,
+    "map": 1,
+    "date": "2026-10-06",
+    "duration_sec": 1465,
+    "teams": [
+      {
+        "name": "JD Gaming",
+        "result": "LOSS",
+        "kills": 7
+      },
+      {
+        "name": "LGD Gaming",
+        "result": "WIN",
+        "kills": 20
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83526/page-game/"
+  },
+  {
+    "id": 83527,
+    "map": 2,
+    "date": "2026-10-06",
+    "duration_sec": 1648,
+    "teams": [
+      {
+        "name": "JD Gaming",
+        "result": "LOSS",
+        "kills": 8
+      },
+      {
+        "name": "LGD Gaming",
+        "result": "WIN",
+        "kills": 16
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83527/page-game/"
+  },
+  {
+    "id": 83528,
+    "map": 1,
+    "date": "2026-10-07",
+    "duration_sec": 1366,
+    "teams": [
+      {
+        "name": "FlyQuest",
+        "result": "WIN",
+        "kills": 21
+      },
+      {
+        "name": "GAM Esports",
+        "result": "LOSS",
+        "kills": 9
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83528/page-game/"
+  },
+  {
+    "id": 83529,
+    "map": 2,
+    "date": "2026-10-07",
+    "duration_sec": 1566,
+    "teams": [
+      {
+        "name": "FlyQuest",
+        "result": "WIN",
+        "kills": 24
+      },
+      {
+        "name": "GAM Esports",
+        "result": "LOSS",
+        "kills": 10
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83529/page-game/"
+  },
+  {
+    "id": 83531,
+    "map": 1,
+    "date": "2026-10-07",
+    "duration_sec": 1821,
+    "teams": [
+      {
+        "name": "GAM Esports",
+        "result": "LOSS",
+        "kills": 12
+      },
+      {
+        "name": "Shopify Rebellion",
+        "result": "WIN",
+        "kills": 22
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83531/page-game/"
+  },
+  {
+    "id": 83532,
+    "map": 2,
+    "date": "2026-10-07",
+    "duration_sec": 2350,
+    "teams": [
+      {
+        "name": "Shopify Rebellion",
+        "result": "WIN",
+        "kills": 33
+      },
+      {
+        "name": "GAM Esports",
+        "result": "LOSS",
+        "kills": 17
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83532/page-game/"
+  },
+  {
+    "id": 83534,
+    "map": 1,
+    "date": "2026-10-07",
+    "duration_sec": 1871,
+    "teams": [
+      {
+        "name": "Shopify Rebellion",
+        "result": "LOSS",
+        "kills": 5
+      },
+      {
+        "name": "FlyQuest",
+        "result": "WIN",
+        "kills": 22
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83534/page-game/"
+  },
+  {
+    "id": 83535,
+    "map": 2,
+    "date": "2026-10-07",
+    "duration_sec": 1647,
+    "teams": [
+      {
+        "name": "FlyQuest",
+        "result": "LOSS",
+        "kills": 10
+      },
+      {
+        "name": "Shopify Rebellion",
+        "result": "WIN",
+        "kills": 21
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83535/page-game/"
+  },
+  {
+    "id": 83536,
+    "map": 3,
+    "date": "2026-10-07",
+    "duration_sec": 1519,
+    "teams": [
+      {
+        "name": "FlyQuest",
+        "result": "WIN",
+        "kills": 17
+      },
+      {
+        "name": "Shopify Rebellion",
+        "result": "LOSS",
+        "kills": 3
+      }
+    ],
+    "source_url": "https://gol.gg/game/stats/83536/page-game/"
+  }
+]

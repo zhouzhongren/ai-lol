@@ -1,0 +1,8 @@
+cache/
+*.tgz
+*.zip
+.DS_Store
+__pycache__/
+.venv/
+runtime/
+.env
