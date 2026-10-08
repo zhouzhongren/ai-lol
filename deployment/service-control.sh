@@ -15,9 +15,18 @@ command -v systemctl >/dev/null 2>&1 || fail '这些脚本用于 Alibaba Cloud L
 if ! LOAD_STATE="$(systemctl show "$UNIT" --property=LoadState --value)"; then
     fail '无法连接 systemd，请在 ECS 主机上执行。'
 fi
-if [[ "$LOAD_STATE" != loaded ]]; then
-    fail "服务未安装或不可加载（${LOAD_STATE}）。请先按 $PROJECT_DIR/服务部署说明.md 第 1–4 节安装依赖、配置权限并安装服务，然后重新运行脚本。"
+if [[ "$LOAD_STATE" == not-found ]]; then
+    case "$ACTION" in
+        start)
+            printf '服务尚未安装，正在执行首次安装…\n'
+            bash "$PROJECT_DIR/install.sh"
+            LOAD_STATE="$(systemctl show "$UNIT" --property=LoadState --value)"
+            ;;
+        stop) printf '服务尚未安装，无需关闭。\n'; exit 0 ;;
+        restart) fail '服务尚未安装，请先运行 bash start.sh 自动安装并启动，或运行 bash install.sh 单独安装。' ;;
+    esac
 fi
+[[ "$LOAD_STATE" == loaded ]] || fail "服务不可加载（${LOAD_STATE}），请检查 systemd 配置；未覆盖或取消屏蔽。"
 
 # 不覆盖现有单元，也不操作指向其他 Git 目录的同名服务。
 WORK_DIR="$(systemctl show "$UNIT" --property=WorkingDirectory --value)"

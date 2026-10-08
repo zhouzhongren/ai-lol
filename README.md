@@ -2,6 +2,16 @@
 
 阿里云 ECS 推荐使用[服务部署说明](服务部署说明.md)：支持 **Alibaba Cloud Linux 4 LTS 64 位**，Git 仓库可保留在 `/root/project/ai-lol`，直接通过 **`http://公网IP:8080/`** 访问。在页面点击即可触发服务器采集并发布新快照，无需 Nginx、前端构建或数据库。另保留[纯静态部署方式](服务器部署说明.md)，此包不依赖 ChatGPT Sites 托管。
 
+在 ECS 上同步本次代码后执行：
+
+```sh
+cd /root/project/ai-lol
+bash install.sh
+bash start.sh
+```
+
+`install.sh` 安装依赖、配置服务用户和目录权限、注册当前路径的 systemd 服务并设置开机自启，安装完成后不会立即启动；`start.sh` 启动并检查健康状态。服务未安装时直接执行 `start.sh` 也会先自动安装。端口 8080 必须空闲，脚本遇到占用会停止并提示，不会替你关闭 Nginx；安全组需放行 TCP 8080。后续用 `bash restart.sh` 重启、`bash stop.sh` 关闭。
+
 可直接部署的中文赛事分析系统。支持王者荣耀 KPL，以及英雄联盟德玛西亚杯、全球总决赛；两种游戏的训练数据、回测、导入数据、自选对阵和分界线各自独立。选择待赛对阵或自建对阵，手动输入时长、总击杀、让人头分界线，查看单局预测、80% 预测区间和大小概率。近期比赛表现分别列出双方各自最近 20 场系列赛，点击可展开逐局时长、击杀和击杀差；该列表不受预测回看天数和局序筛选影响。
 
 ## 数据
@@ -31,17 +41,17 @@ Worlds 尚未公布的对阵保留“待定”，不产生数值预测。可选�
 
 ## 服务启动与页面更新
 
-Python 3.9+，在项目目录执行：
+阿里云长期运行使用上面的安装和启动脚本，无需先手工安装 systemd 服务。脚本检查已安装服务的项目目录，不覆盖已有 service 配置；再次运行 `install.sh` 不会重装依赖或重启已有服务。查看日志使用 `sudo journalctl -u kpl-insight -f`，详见[脚本使用说明](服务部署说明.md#快速安装与启动)。
+
+本地开发可使用 Python 3.9+ 直接运行：
 
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python server.py --host 0.0.0.0 --port 8080
+.venv/bin/python server.py --host 127.0.0.1 --port 8080
 ```
 
-访问 `http://服务器公网IP:8080/`，本地测试访问 `http://127.0.0.1:8080/`。8080 需空闲并在安全组放行；原 Nginx 若监听该端口，应先释放。长期运行使用 [systemd 部署步骤](服务部署说明.md#4-启动并设置开机自启)。
-
-完成 systemd 安装后，可在项目目录运行 `bash start.sh` 启动、`bash restart.sh` 重启、`bash stop.sh` 关闭服务。脚本会检查服务所属目录，启动后验证健康状态；无需手动维护 PID。查看日志使用 `sudo journalctl -u kpl-insight -f`，详见[脚本使用说明](服务部署说明.md#41-使用启动重启和关闭脚本)。
+服务器访问 `http://服务器公网IP:8080/`，本地测试访问 `http://127.0.0.1:8080/`。不要在 systemd 服务运行时再启动一份使用相同端口或运行目录的服务。
 
 首次启动自动生成 `runtime/admin-token`，在服务器读取口令后，在「比赛数据 → 更新服务器数据」中输入。按当前游戏采集，后台显示阶段与日志；成功后发布完整快照，失败保留旧数据。同一时间只执行一个任务。运行数据、缓存和口令都在 Git 忽略的 `runtime/`，不会改写 Git 中的 `dist/*.json`。
 
@@ -99,7 +109,8 @@ python3 update-global-lol-data.py --fetch --base cache/lol/base-enriched.json
 ## 文件
 
 - `server.py` / `update_service.py`：网页服务、更新鉴权、后台采集与原子发布。
-- `start.sh` / `restart.sh` / `stop.sh`：管理已安装的 systemd 服务，共用 `deployment/service-control.sh`。
+- `install.sh`：首次安装依赖、目录权限和 systemd 服务，使用 `deployment/install-service.sh` 与 `deployment/render-service.py`。
+- `start.sh` / `restart.sh` / `stop.sh`：管理 systemd 服务，共用 `deployment/service-control.sh`；启动时可自动完成首次安装。
 - `requirements.txt` / `deployment/kpl-insight.service`：服务依赖与 systemd 配置。
 - `服务部署说明.md`：Git 原目录、IP:8080 访问与页面更新操作说明。
 
