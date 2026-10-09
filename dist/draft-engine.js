@@ -1,6 +1,6 @@
 import { predict, modelInternals } from './engine.js';
 
-const { resolveOptions, dateTimestamp, eligibleHistory, fitModel, weightedQuantile, market, validateChampionLineups, backtestTargetEligible, DRAFT_ROLES } = modelInternals;
+const { resolveOptions, dateTimestamp, trainingHistory, fitModel, forecastDistribution, validateChampionLineups, backtestTargetEligible, DRAFT_ROLES } = modelInternals;
 const METRICS = ['durationMin', 'killsA', 'killsB', 'totalKills', 'killDiff'];
 const ROLES = [...DRAFT_ROLES];
 const RIDGE = 40;
@@ -20,7 +20,7 @@ export function validateDraft(draft) {
 function signature(rows) {
   // Array identity prevents cross-dataset reuse. Content guards against an
   // in-place edit to either outcomes, eligibility timestamps or lineups.
-  return JSON.stringify(rows.map(row => [row.game, row.id, row.series_id, row.series_verified, row.availability_basis, row.date, row.available_at, row.season, row.map, row.team_a, row.team_b, row.duration_sec, row.kills_a, row.kills_b, row.synthetic, row.draft_verified, ...ROLES.map(role => row.lineup_a?.[role]), ...ROLES.map(role => row.lineup_b?.[role])]));
+  return JSON.stringify(rows.map(row => [row.game, row.id, row.series_id, row.series_verified, row.availability_basis, row.observed_at, row.date, row.available_at, row.season, row.map, row.team_a, row.team_b, row.duration_sec, row.kills_a, row.kills_b, row.synthetic, row.draft_verified, ...ROLES.map(role => row.lineup_a?.[role]), ...ROLES.map(role => row.lineup_b?.[role])]));
 }
 
 function lineupFeatures(lineups) {
@@ -58,7 +58,7 @@ function ridgeFit(records, keys, metric, signed) {
 }
 
 function buildContext(rows, options, cutoff) {
-  const history = eligibleHistory(rows, options, cutoff);
+  const history = trainingHistory(rows, options, cutoff);
   if (!history.length) return null;
   const baselineModel = fitModel(history, cutoff, options.lookback);
   const records = [], counts = new Map();
@@ -66,7 +66,7 @@ function buildContext(rows, options, cutoff) {
     if (row.draft_verified !== true) continue;
     const validated = validateChampionLineups(row.lineup_a, row.lineup_b);
     if (!validated.valid) continue;
-    const baseline = baselineModel.estimate(row.team_a, row.team_b);
+    const baseline = baselineModel.estimate(row.team_a, row.team_b, row.map);
     const features = lineupFeatures(validated.lineups);
     for (const feature of features) {
       const value = counts.get(feature.key) || { count: 0, weightedCount: 0 };
@@ -98,8 +98,8 @@ function getContext(rows, options, cutoff) {
     stored = { signature: dataSignature, contexts: new Map() };
     cache.set(rows, stored);
   }
-  // Team choices, draft choices and threshold lines do not affect this fit.
-  const key = JSON.stringify([options.game, cutoff, options.season, options.map, Number.isFinite(options.lookback) ? options.lookback : 'all', options.excludeSeriesId || null]);
+  // Team/draft choices, target map and threshold lines do not affect this pooled fit.
+  const key = JSON.stringify([options.game, cutoff, options.season, Number.isFinite(options.lookback) ? options.lookback : 'all', options.excludeSeriesId || null]);
   if (stored.contexts.has(key)) return stored.contexts.get(key);
   const context = buildContext(rows, options, cutoff);
   if (stored.contexts.size >= 12) stored.contexts.delete(stored.contexts.keys().next().value);
@@ -121,30 +121,6 @@ function draftInfo(baseline, overrides = {}) {
     causal: false, sideAdjusted: false, hyperparametersTunedOnBacktest: false,
     availabilityVerified: baseline.model?.availabilityCoverage === 1,
     ...overrides,
-  };
-}
-
-function shiftedDistribution(context, mean, options) {
-  const { baselineModel } = context;
-  const a = baselineModel.teams.get(options.teamA), b = baselineModel.teams.get(options.teamB);
-  const residualScale = Math.sqrt(1 + 12 / (Math.min(a.weight, b.weight) + 12));
-  const outcomes = Object.fromEntries(METRICS.map(key => [key, []]));
-  for (const { row, weight } of baselineModel.weighted) {
-    const estimated = baselineModel.estimate(row.team_a, row.team_b);
-    const actual = { durationMin: row.duration_sec / 60, killsA: row.kills_a, killsB: row.kills_b, totalKills: row.kills_a + row.kills_b, killDiff: row.kills_a - row.kills_b };
-    for (const key of METRICS) {
-      const residuals = key === 'killDiff' ? [actual[key] - estimated[key], -(actual[key] - estimated[key])] : key === 'killsA' || key === 'killsB' ? [actual.killsA - estimated.killsA, actual.killsB - estimated.killsB] : [actual[key] - estimated[key]];
-      for (const residual of residuals) {
-        let value = mean[key] + residual * residualScale;
-        if (key !== 'killDiff') value = Math.max(key === 'durationMin' ? 1 : 0, value);
-        if (key !== 'durationMin') value = Math.round(value);
-        outcomes[key].push({ value, weight: weight / residuals.length });
-      }
-    }
-  }
-  return {
-    intervals: Object.fromEntries(METRICS.map(key => [key, [round(weightedQuantile(outcomes[key], 0.1)), round(weightedQuantile(outcomes[key], 0.9))]])),
-    markets: { duration: market(outcomes.durationMin, options.durationLine, false), totalKills: market(outcomes.totalKills, options.killsLine, true), handicap: market(outcomes.killDiff, options.handicap, true) },
   };
 }
 
@@ -193,7 +169,7 @@ export function predictDraft(rows, input = {}) {
     rawDelta.totalKills += context.effects.totalKills.values.get(feature.key) || 0;
     rawDelta.killDiff += (context.effects.killDiff.values.get(feature.key) || 0) * feature.sign;
   }
-  const original = context.baselineModel.estimate(options.teamA, options.teamB);
+  const original = context.baselineModel.estimate(options.teamA, options.teamB, options.map);
   const total = clamp(original.totalKills + rawDelta.totalKills, 0, 400);
   const difference = clamp(original.killDiff + rawDelta.killDiff, -total, total);
   const killsA = clamp((total + difference) / 2, 0, 200), killsB = clamp((total - difference) / 2, 0, 200);
@@ -201,7 +177,7 @@ export function predictDraft(rows, input = {}) {
   const mean = { durationMin: round(rawMean.durationMin), killsA: round(killsA), killsB: round(killsB) };
   mean.totalKills = round(mean.killsA + mean.killsB);
   mean.killDiff = round(mean.killsA - mean.killsB);
-  const distribution = shiftedDistribution(context, rawMean, options);
+  const distribution = forecastDistribution(context.baselineModel, rawMean, options);
   info.applied = true;
   info.delta = Object.fromEntries(METRICS.map(key => [key, round(mean[key] - baseline.mean[key])]));
   info.fitPasses = Object.fromEntries(Object.entries(context.effects).map(([key, fit]) => [key, fit.passes]));

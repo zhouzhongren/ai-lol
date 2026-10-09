@@ -118,7 +118,8 @@ test('BO9 supports maps 8 and 9 in both imports and predictions', () => {
   for (const map of [8, 9]) {
     const prediction = predict(rows, { ...options, teamA: rows[0].team_a, teamB: rows[0].team_b, map });
     assert.equal(prediction.available, true);
-    assert.equal(prediction.sample.league, 1);
+    assert.equal(prediction.sample.league, 2);
+    assert.equal(prediction.sample.mapCount, 1);
   }
   assert.equal(validateRows([{ ...rows[0], map: 10 }]).rows.length, 0);
   assert.equal(predict(rows, { ...options, map: 10 }).available, false);
@@ -227,16 +228,80 @@ test('probabilities are bounded, exhaustive, with pushes only on integer kills l
   }
 });
 
-test('history filters apply by season, lookback, map index and strict date boundary', () => {
+test('season, lookback and strict date filters retain pooled history with a separate requested-map count', () => {
   const request = { ...options, date: '2025-12-30', map: 1, lookback: 60 };
   const result = predict(demo, request);
-  const expected = demo.filter(row => row.map === 1 && Date.parse(row.date) < Date.parse(request.date) && Date.parse(request.date) - Date.parse(row.date) <= 60 * 86400000);
+  const cutoff = Date.parse(`${request.date}T00:00:00+08:00`);
+  const expected = demo.filter(row => Date.parse(row.date) < cutoff && cutoff - Date.parse(row.date) <= 60 * 86400000);
   assert.equal(result.sample.league, expected.length);
+  assert.equal(result.sample.mapCount, expected.filter(row => row.map === 1).length);
+  assert.equal(result.sample.requestedMap, 1);
   assert.equal(predict(demo, { ...options, season: '2024' }).available, false);
   assert.equal(predict(demo, { ...options, teamA: '未知队伍' }).available, false);
   assert.equal(predict(demo, { ...options, date: '2025-02-30' }).available, false);
   assert.equal(predict(demo, { ...options, teamA: options.teamB }).available, false);
   assert.equal(predict([], options).available, false);
+});
+
+test('pooling other map numbers preserves same-series, availability and future-data exclusions', () => {
+  const request = { ...options, date: '2025-09-15T20:00:00+08:00', lookback: 180, map: 1, excludeSeriesId: 'TARGET-SERIES' };
+  const base = predict(demo, request);
+  const poison = { ...demo[0], id: 'POISON', series_id: 'OTHER-SERIES', map: 5, date: '2025-09-15T17:00:00+08:00', available_at: '2025-09-15T19:59:59+08:00', kills_a: 180, kills_b: 0, duration_sec: 7000 };
+  const excluded = [
+    { ...poison, id: 'SAME-SERIES', series_id: request.excludeSeriesId },
+    { ...poison, id: 'UNAVAILABLE', available_at: request.date },
+    { ...poison, id: 'FUTURE', date: '2025-09-16T17:00:00+08:00', available_at: '2025-09-16T18:00:00+08:00' },
+  ];
+  assert.deepEqual(predict([...demo, ...excluded], request), base);
+  const eligible = predict([...demo, poison], request);
+  assert.equal(eligible.sample.league, base.sample.league + 1);
+  assert.equal(eligible.sample.mapCount, base.sample.mapCount);
+  assert.notDeepEqual(eligible.mean, base.mean);
+});
+
+test('an unseen map number falls back to the shared team estimate with low quality', () => {
+  const shared = predict(demo, { ...options, map: 'all' });
+  const unseen = predict(demo, { ...options, map: 9 });
+  assert.equal(unseen.available, true);
+  assert.equal(unseen.sample.league, shared.sample.league);
+  assert.equal(unseen.sample.mapCount, 0);
+  assert.equal(unseen.sample.quality, 'low');
+  assert.equal(unseen.model.mapEffect, null);
+  for (const key of ['mean', 'intervals', 'markets']) assert.deepEqual(unseen[key], shared[key]);
+  assert.match(unseen.warnings.join(''), /第 9 局只有 0 条/);
+});
+
+test('map effects learn duration and total-kill direction while preserving team orientation', () => {
+  // Both maps have the same matchup and timestamp, so only the planted map
+  // effects can separate them. These observations are synthetic fixtures.
+  const rows = Array.from({ length: 80 }, (_, i) => ({
+    ...demo[0], id: `MAP-EFFECT-${i}`, series_id: `MAP-EFFECT-${i}`,
+    date: '2025-12-15T12:00:00Z', available_at: '2025-12-15T13:00:00Z',
+    team_a: 'Alpha', team_b: 'Beta', map: i % 2 + 1,
+    duration_sec: i % 2 ? 1800 : 1200, kills_a: i % 2 ? 20 : 10, kills_b: i % 2 ? 15 : 5,
+  }));
+  const input = { ...options, teamA: 'Alpha', teamB: 'Beta', map: 1 };
+  const first = predict(rows, input), second = predict(rows, { ...input, map: 2 });
+  const shared = predict(rows, { ...input, map: 'all' });
+  assert.equal(first.sample.league, rows.length);
+  assert.equal(first.sample.mapCount, rows.length / 2);
+  assert.ok(first.mean.durationMin < shared.mean.durationMin && shared.mean.durationMin < second.mean.durationMin);
+  assert.ok(first.mean.totalKills < shared.mean.totalKills && shared.mean.totalKills < second.mean.totalKills);
+  assert.ok(second.mean.durationMin - first.mean.durationMin < 10);
+  assert.ok(second.mean.totalKills - first.mean.totalKills < 20);
+  assert.equal(first.mean.killDiff, second.mean.killDiff);
+  const reversed = predict(rows, { ...input, teamA: 'Beta', teamB: 'Alpha', handicap: -input.handicap });
+  assert.equal(first.mean.durationMin, reversed.mean.durationMin);
+  assert.equal(first.mean.totalKills, reversed.mean.totalKills);
+  assert.equal(first.mean.killsA, reversed.mean.killsB);
+  assert.equal(first.mean.killsB, reversed.mean.killsA);
+  assert.equal(first.mean.killDiff, -reversed.mean.killDiff);
+  assert.deepEqual(first.intervals.killsA, reversed.intervals.killsB);
+  assert.ok(Math.abs(first.markets.handicap.over - reversed.markets.handicap.under) < 1e-12);
+  const opposite = rows.map(row => ({ ...row, duration_sec: 3000 - row.duration_sec, kills_a: 30 - row.kills_a, kills_b: 20 - row.kills_b }));
+  const oppositeFirst = predict(opposite, input), oppositeSecond = predict(opposite, { ...input, map: 2 });
+  assert.ok(oppositeFirst.mean.durationMin > oppositeSecond.mean.durationMin);
+  assert.ok(oppositeFirst.mean.totalKills > oppositeSecond.mean.totalKills);
 });
 
 test('naive timestamps and date-only cutoffs use Beijing time, preserving explicit offsets', () => {

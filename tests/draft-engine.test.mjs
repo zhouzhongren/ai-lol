@@ -61,6 +61,58 @@ test('hero effects are learned from outcomes rather than a built-in strength tab
   assert.ok(reversedSlow.mean.durationMin < reversedFast.mean.durationMin);
 });
 
+test('draft training shares champion evidence across maps and uses the same pooled baseline', () => {
+  const data = rows.map((row, i) => ({ ...row, map: i % 2 === 0 ? 2 : 1, bo: 3 }));
+  const result = predictDraft(data, request);
+  const baseline = predict(data, request);
+  assert.equal(result.draft.applied, true);
+  assert.equal(result.draft.trainingCount, data.length);
+  assert.equal(result.sample.mapCount, data.filter(row => row.map === request.map).length);
+  const ornn = result.draft.championCoverage.find(item => item.side === 'teamA' && item.role === 'top');
+  assert.equal(ornn.champion, 'Ornn');
+  assert.equal(ornn.count, data.filter(row => row.map === 2).length);
+  assert.equal(ornn.effectKnown, true);
+  for (const key of ['mean', 'intervals', 'markets', 'sample']) assert.deepEqual(result.draft.baseline[key], baseline[key]);
+  const faster = predictDraft(data, { ...request, draft: { teamA: { ...teamA, top: 'Camille' }, teamB } });
+  assert.ok(result.mean.durationMin > faster.mean.durationMin);
+  assert.ok(result.mean.killDiff > faster.mean.killDiff);
+  for (const map of [2, 1, 3]) {
+    const input = { ...request, map };
+    assert.deepEqual(predictDraft(data, input), predictDraft(structuredClone(data), input));
+  }
+  const reverse = predictDraft(data, { ...request, teamA: 'Beta', teamB: 'Alpha', handicap: -request.handicap, draft: { teamA: teamB, teamB: teamA } });
+  assert.equal(result.mean.durationMin, reverse.mean.durationMin);
+  assert.equal(result.mean.totalKills, reverse.mean.totalKills);
+  assert.equal(result.mean.killsA, reverse.mean.killsB);
+  assert.equal(result.mean.killDiff, -reverse.mean.killDiff);
+  assert.ok(Math.abs(result.markets.handicap.over - reverse.markets.handicap.under) < 1e-12);
+  const poison = { ...data[0], map: 3, duration_sec: 7000, kills_a: 180 };
+  assert.deepEqual(predictDraft([...data,
+    { ...poison, id: 'OTHER-MAP-SAME-SERIES', series_id: request.excludeSeriesId },
+    { ...poison, id: 'OTHER-MAP-UNAVAILABLE', series_id: 'UNAVAILABLE', available_at: request.date },
+    { ...poison, id: 'OTHER-MAP-FUTURE', series_id: 'FUTURE', date: '2026-06-16T12:00:00Z', available_at: '2026-06-16T13:00:00Z' },
+  ], request), result);
+});
+
+test('a constant lineup adds no duration or total-kill effect to a balanced map-specific baseline', () => {
+  const data = Array.from({ length: 80 }, (_, i) => ({
+    ...rows[0], id: `BALANCED-DRAFT-${i}`, series_id: `BALANCED-DRAFT-${i}`,
+    date: '2026-06-01T12:00:00Z', available_at: '2026-06-01T12:45:00Z',
+    map: i % 2 + 1, bo: 3, duration_sec: i % 2 ? 1800 : 1200,
+    kills_a: i % 2 ? 20 : 10, kills_b: i % 2 ? 20 : 10,
+  }));
+  for (const map of [1, 2]) {
+    const input = { ...request, map };
+    const result = predictDraft(data, input), baseline = predict(data, input);
+    assert.equal(result.draft.applied, true);
+    assert.equal(result.mean.durationMin, baseline.mean.durationMin);
+    // The draft output sums rounded per-team means, unlike the base output.
+    assert.ok(Math.abs(result.mean.totalKills - baseline.mean.totalKills) <= 0.011);
+    assert.deepEqual(result.intervals, baseline.intervals);
+    assert.deepEqual(result.markets, baseline.markets);
+  }
+});
+
 test('adjusted means, intervals and market probabilities change together without a narrower duration distribution', () => {
   // An empirical CDF can stay flat at 30.5 even when its center moves. This
   // threshold crosses the planted slow-game residual cluster after adjustment.
@@ -167,6 +219,19 @@ test('cache guards dataset changes and does not depend on threshold lines', () =
   const changed = predictDraft(data, request);
   assert.deepEqual(changed, predictDraft(structuredClone(data), request));
   assert.notDeepEqual(changed.mean, original.mean);
+});
+
+test('cache invalidates when an observed timestamp makes a historical snapshot ineligible', () => {
+  const data = rows.map(row => ({ ...row, availability_basis: 'observed_snapshot', observed_at: row.available_at }));
+  const original = predictDraft(data, request);
+  assert.equal(original.draft.trainingCount, data.length);
+  // Updating provenance in place must remove this row from both the baseline
+  // and the cached draft fit when availability no longer follows observation.
+  data[0].observed_at = request.date;
+  const changed = predictDraft(data, request);
+  assert.equal(changed.sample.league, data.length - 1);
+  assert.equal(changed.draft.trainingCount, data.length - 1);
+  assert.deepEqual(changed, predictDraft(structuredClone(data), request));
 });
 
 test('CSV roundtrip retains verified lineups; malformed JSON fails and partial drafts remain baseline-only', () => {

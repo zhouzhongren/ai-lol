@@ -311,6 +311,12 @@ function eligibleHistory(rows, options, cutoff) {
   });
 }
 
+// Share team evidence across map numbers. The requested map is an effect to
+// estimate, not a reason to discard the team's other completed games.
+function trainingHistory(rows, options, cutoff) {
+  return eligibleHistory(rows, { ...options, map: 'all' }, cutoff);
+}
+
 function fitModel(history, cutoff, lookback) {
   const halfLife = Number.isFinite(lookback) ? lookback / 2 : 120;
   const weighted = history.map(row => ({ row, weight: Math.pow(0.5, (cutoff - dateTimestamp(row.date)) / DAY / halfLife) }));
@@ -343,14 +349,28 @@ function fitModel(history, cutoff, lookback) {
     }
     for (const [name, value] of next) Object.assign(teams.get(name), value);
   }
-  const estimate = (teamA, teamB) => {
+  const mapEffects = new Map(), mapPrior = 40;
+  const estimate = (teamA, teamB, map = 'all') => {
     const a = teams.get(teamA) || { attack: 0, defense: 0, pace: 0 };
     const b = teams.get(teamB) || { attack: 0, defense: 0, pace: 0 };
-    const killsA = clamp(meanKills + a.attack + b.defense, 0, 200);
-    const killsB = clamp(meanKills + b.attack + a.defense, 0, 200);
-    return { durationMin: clamp(meanDuration + a.pace + b.pace, 1, 180), killsA, killsB, totalKills: killsA + killsB, killDiff: killsA - killsB };
+    const effect = mapEffects.get(map);
+    const killOffset = (effect?.totalKills || 0) / 2;
+    const killsA = clamp(meanKills + a.attack + b.defense + killOffset, 0, 200);
+    const killsB = clamp(meanKills + b.attack + a.defense + killOffset, 0, 200);
+    return { durationMin: clamp(meanDuration + a.pace + b.pace + (effect?.durationMin || 0), 1, 180), killsA, killsB, totalKills: killsA + killsB, killDiff: killsA - killsB };
   };
-  return { weighted, teams, weightSum, estimate, meanDuration, meanKills, halfLife, ridge };
+  for (const { row, weight } of weighted) {
+    if (!mapEffects.has(row.map)) mapEffects.set(row.map, { count: 0, weight: 0, durationMin: 0, totalKills: 0 });
+    const effect = mapEffects.get(row.map), baseline = estimate(row.team_a, row.team_b);
+    effect.count++; effect.weight += weight;
+    effect.durationMin += weight * (row.duration_sec / 60 - baseline.durationMin);
+    effect.totalKills += weight * (row.kills_a + row.kills_b - baseline.totalKills);
+  }
+  for (const effect of mapEffects.values()) {
+    effect.durationMin /= effect.weight + mapPrior;
+    effect.totalKills /= effect.weight + mapPrior;
+  }
+  return { weighted, teams, weightSum, estimate, meanDuration, meanKills, halfLife, ridge, mapEffects, mapPrior };
 }
 
 function weightedQuantile(values, quantile) {
@@ -374,29 +394,13 @@ function market(samples, line, discrete) {
   return { line, over: over / sum, under: under / sum, push: push / sum };
 }
 
-export function predict(rows, input = {}) {
-  const options = resolveOptions(input);
-  const { teamA, teamB } = options;
-  const cutoff = dateTimestamp(options.date);
-  const empty = error => ({ available: false, game: options.game, error, sample: { league: 0, teamA: 0, teamB: 0, headToHead: 0, effective: 0, quality: 'low', qualityLabel: '数据不足' } });
-  if (!options.game) return empty('游戏类型必须为 kpl 或 lol。');
-  if (!teamA || !teamB || teamA === teamB) return empty('请选择两支不同的队伍。');
-  if (options.map !== 'all' && (!Number.isInteger(options.map) || options.map < 1 || options.map > 9)) return empty('局序必须为 1–9 的整数，或全部局序。');
-  if (!Number.isFinite(cutoff)) return empty('请选择有效的预测比赛日期。');
-  if (![options.durationLine, options.killsLine, options.handicap].every(Number.isFinite)) return empty('预测阈值必须为有效数值。');
-  const history = eligibleHistory(rows, options, cutoff);
-  if (!history.length) return empty('筛选范围内没有早于目标比赛的历史逐局数据。');
-  const model = fitModel(history, cutoff, options.lookback);
-  const a = model.teams.get(teamA), b = model.teams.get(teamB);
-  if (!a || !b) return empty('至少一支队伍在筛选范围内没有历史数据，请扩大时间窗口或导入数据。');
-  const rawMean = model.estimate(teamA, teamB);
-  const effectiveA = a.weight * a.weight / a.weightSq;
-  const effectiveB = b.weight * b.weight / b.weightSq;
-  const effective = Math.min(effectiveA, effectiveB);
+function forecastDistribution(model, rawMean, options) {
+  const a = model.teams.get(options.teamA), b = model.teams.get(options.teamB);
+  const hasMapEvidence = options.map !== 'all' && model.mapEffects.has(options.map);
   const residualScale = Math.sqrt(1 + 12 / (Math.min(a.weight, b.weight) + 12));
   const outcomes = Object.fromEntries(METRICS.map(key => [key, []]));
   for (const { row, weight } of model.weighted) {
-    const estimate = model.estimate(row.team_a, row.team_b);
+    const estimate = model.estimate(row.team_a, row.team_b, hasMapEvidence ? row.map : 'all');
     const actual = { durationMin: row.duration_sec / 60, killsA: row.kills_a, killsB: row.kills_b, totalKills: row.kills_a + row.kills_b, killDiff: row.kills_a - row.kills_b };
     for (const key of METRICS) {
       const candidates = key === 'killDiff' ? [actual[key] - estimate[key], -(actual[key] - estimate[key])] : key === 'killsA' || key === 'killsB' ? [actual.killsA - estimate.killsA, actual.killsB - estimate.killsB] : [actual[key] - estimate[key]];
@@ -410,11 +414,36 @@ export function predict(rows, input = {}) {
     }
   }
   const intervals = Object.fromEntries(METRICS.map(key => [key, [round(weightedQuantile(outcomes[key], 0.1)), round(weightedQuantile(outcomes[key], 0.9))]]));
+  return { intervals, markets: { duration: market(outcomes.durationMin, options.durationLine, false), totalKills: market(outcomes.totalKills, options.killsLine, true), handicap: market(outcomes.killDiff, options.handicap, true) } };
+}
+
+export function predict(rows, input = {}) {
+  const options = resolveOptions(input);
+  const { teamA, teamB } = options;
+  const cutoff = dateTimestamp(options.date);
+  const empty = error => ({ available: false, game: options.game, error, sample: { league: 0, teamA: 0, teamB: 0, headToHead: 0, effective: 0, quality: 'low', qualityLabel: '数据不足' } });
+  if (!options.game) return empty('游戏类型必须为 kpl 或 lol。');
+  if (!teamA || !teamB || teamA === teamB) return empty('请选择两支不同的队伍。');
+  if (options.map !== 'all' && (!Number.isInteger(options.map) || options.map < 1 || options.map > 9)) return empty('局序必须为 1–9 的整数，或全部局序。');
+  if (!Number.isFinite(cutoff)) return empty('请选择有效的预测比赛日期。');
+  if (![options.durationLine, options.killsLine, options.handicap].every(Number.isFinite)) return empty('预测阈值必须为有效数值。');
+  const history = trainingHistory(rows, options, cutoff);
+  if (!history.length) return empty('筛选范围内没有早于目标比赛的历史逐局数据。');
+  const model = fitModel(history, cutoff, options.lookback);
+  const a = model.teams.get(teamA), b = model.teams.get(teamB);
+  if (!a || !b) return empty('至少一支队伍在筛选范围内没有历史数据，请扩大时间窗口或导入数据。');
+  const rawMean = model.estimate(teamA, teamB, options.map);
+  const effectiveA = a.weight * a.weight / a.weightSq;
+  const effectiveB = b.weight * b.weight / b.weightSq;
+  const effective = Math.min(effectiveA, effectiveB);
+  const distribution = forecastDistribution(model, rawMean, options);
   const headToHead = history.filter(row => (row.team_a === teamA && row.team_b === teamB) || (row.team_a === teamB && row.team_b === teamA)).length;
   const minCount = Math.min(a.observations.length, b.observations.length);
-  const quality = minCount >= 30 && effective >= 25 && history.length >= 150 ? 'high' : minCount >= 12 && effective >= 10 && history.length >= 60 ? 'medium' : 'low';
+  const mapCount = options.map === 'all' ? history.length : model.mapEffects.get(options.map)?.count || 0;
+  const quality = mapCount < 12 ? 'low' : minCount >= 30 && effective >= 25 && history.length >= 150 ? 'high' : minCount >= 12 && effective >= 10 && history.length >= 60 ? 'medium' : 'low';
   const warnings = [];
-  if (quality === 'low') warnings.push('队伍样本较少，预测不确定性较高。');
+  if (quality === 'low') warnings.push('战队或所选局序样本较少，预测不确定性较高。');
+  if (options.map !== 'all' && mapCount < 30) warnings.push(`第 ${options.map} 局只有 ${mapCount} 条历史记录，局序修正向共享战队模型收缩；零样本时使用共享模型，以该局实际举行为条件。`);
   const syntheticCount = history.filter(row => row.synthetic).length;
   const availabilityCount = history.filter(row => row.available_at && Number.isFinite(dateTimestamp(row.available_at))).length;
   const observedSnapshotCount = history.filter(row => row.availability_basis === 'observed_snapshot').length;
@@ -433,10 +462,9 @@ export function predict(rows, input = {}) {
     game: options.game,
     teamA, teamB, date: options.date,
     mean: Object.fromEntries(METRICS.map(key => [key, round(rawMean[key])])),
-    intervals,
-    markets: { duration: market(outcomes.durationMin, options.durationLine, false), totalKills: market(outcomes.totalKills, options.killsLine, true), handicap: market(outcomes.killDiff, options.handicap, true) },
-    sample: { league: history.length, teamA: a.observations.length, teamB: b.observations.length, headToHead, effective: round(effective, 1), weightedTeamA: round(a.weight, 1), weightedTeamB: round(b.weight, 1), quality, qualityLabel: { low: '样本偏少', medium: '样本适中', high: '样本充足' }[quality] },
-    model: { name: '时间衰减 · 对手校正 · 联赛收缩', game: options.game, gameIsolation: '训练、残差和回测只使用所选游戏的数据', version: 'baseline-1.0', halfLifeDays: model.halfLife, priorMaps: model.ridge, intervalLevel: 0.8, intervalMethod: '历史拟合残差经验分位数 + 小样本放宽；非置信区间，覆盖率需回测', probabilityMethod: '历史残差经验分布（0.5 平滑）；未做概率校准', historyFrom: history.reduce((v, row) => dateTimestamp(row.date) < dateTimestamp(v) ? row.date : v, history[0].date), historyTo: history.reduce((v, row) => dateTimestamp(row.date) > dateTimestamp(v) ? row.date : v, history[0].date), historyAvailableThrough, availabilityCoverage: availabilityCount / history.length, observedSnapshotCount, unverifiedSeriesCount, unknownTimezoneCount, availabilityPolicy: availabilityCount === history.length ? '全部训练记录仅在其数据可用时间之后使用' : '缺少 available_at 的记录使用 date 近似，未完全核验当时可用性', synthetic: syntheticCount > 0, syntheticCount, timezone: 'Asia/Shanghai', naiveDateTimezone: 'UTC+08:00', patchAware: false, regionStrengthAware: false, mapFilter: options.map, excludedSeriesId: options.excludeSeriesId || null, leakagePolicy: '比赛时间与数据可用时间均须严格早于目标时刻；已提供目标系列赛 ID 时排除该系列赛全部局数，回测始终排除同系列赛' },
+    ...distribution,
+    sample: { league: history.length, requestedMap: options.map, mapCount, teamA: a.observations.length, teamB: b.observations.length, headToHead, effective: round(effective, 1), weightedTeamA: round(a.weight, 1), weightedTeamB: round(b.weight, 1), quality, qualityLabel: { low: '样本偏少', medium: '样本适中', high: '样本充足' }[quality] },
+    model: { name: '时间衰减 · 共享战队 · 局序收缩', game: options.game, gameIsolation: '训练、残差和回测只使用所选游戏的数据', version: 'pooled-map-2.0', mapPooling: true, mapPriorMaps: model.mapPrior, mapEffect: options.map === 'all' ? null : model.mapEffects.get(options.map) || null, mapPolicy: '全部局序共享战队历史；指定局序对时长和总击杀拟合收缩残差偏移；无该局序记录时回退共享模型', halfLifeDays: model.halfLife, priorMaps: model.ridge, intervalLevel: 0.8, intervalMethod: '历史拟合残差经验分位数 + 小样本放宽；非置信区间，覆盖率需回测', probabilityMethod: '历史残差经验分布（0.5 平滑）；未做概率校准', historyFrom: history.reduce((v, row) => dateTimestamp(row.date) < dateTimestamp(v) ? row.date : v, history[0].date), historyTo: history.reduce((v, row) => dateTimestamp(row.date) > dateTimestamp(v) ? row.date : v, history[0].date), historyAvailableThrough, availabilityCoverage: availabilityCount / history.length, observedSnapshotCount, unverifiedSeriesCount, unknownTimezoneCount, availabilityPolicy: availabilityCount === history.length ? '全部训练记录仅在其数据可用时间之后使用' : '缺少 available_at 的记录使用 date 近似，未完全核验当时可用性', synthetic: syntheticCount > 0, syntheticCount, timezone: 'Asia/Shanghai', naiveDateTimezone: 'UTC+08:00', patchAware: false, regionStrengthAware: false, mapFilter: options.map, excludedSeriesId: options.excludeSeriesId || null, leakagePolicy: '比赛时间与数据可用时间均须严格早于目标时刻；已提供目标系列赛 ID 时排除该系列赛全部局数，回测始终排除同系列赛' },
     warnings,
   };
 }
@@ -469,9 +497,8 @@ export function backtest(rows, input = {}) {
     mae[key] = round(details.reduce((sum, item) => sum + Math.abs(item.predicted[key] - item.actual[key]), 0) / details.length);
     coverage80[key] = details.filter(item => item.actual[key] >= item.intervals[key][0] && item.actual[key] <= item.intervals[key][1]).length / details.length;
   }
-  return { available: true, game: options.game, count: details.length, skipped, mae, coverage80, details, from: details[0].date, to: details.at(-1).date, synthetic: candidates.some(row => row.synthetic), methodology: '按时间滚动回测，只使用所选游戏并排除同一系列赛所有局；未核验系列归属、仅观测快照或明确不可回测的逐局记录不作评分目标；每次至少 30 局联赛样本且双方各 6 局。MAE 为平均绝对误差，覆盖率为实际值落入预测区间的比例。' };
+  return { available: true, game: options.game, mapScope: options.map, modelVersion: 'pooled-map-2.0', count: details.length, skipped, mae, coverage80, details, from: details[0].date, to: details.at(-1).date, synthetic: candidates.some(row => row.synthetic), methodology: '按时间滚动回测，只使用所选游戏并排除同一系列赛所有局；未核验系列归属、仅观测快照或明确不可回测的逐局记录不作评分目标；各局序共享战队历史，指定局序加入收缩偏移；每次至少 30 局共享样本且双方各 6 局。MAE 为平均绝对误差，覆盖率为实际值落入预测区间的比例。' };
 }
 
-// Shared read-only building blocks for optional extensions. Merely exporting
-// these helpers does not change the base model's fit, predictions or defaults.
-export const modelInternals = Object.freeze({ resolveOptions, dateTimestamp, eligibleHistory, fitModel, weightedQuantile, market, validateChampionLineups, backtestTargetEligible, DRAFT_ROLES: Object.freeze([...DRAFT_ROLES]) });
+// Shared model and distribution helpers keep the pre-match and draft paths aligned.
+export const modelInternals = Object.freeze({ resolveOptions, dateTimestamp, eligibleHistory, trainingHistory, fitModel, forecastDistribution, weightedQuantile, market, validateChampionLineups, backtestTargetEligible, DRAFT_ROLES: Object.freeze([...DRAFT_ROLES]) });

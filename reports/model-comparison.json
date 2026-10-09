@@ -1,0 +1,1312 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-09T01:54:42.790Z",
+  "dateRange": {
+    "fromInclusive": "2026-08-01T00:00:00.000Z",
+    "toExclusive": "2026-10-09T00:00:00.000Z"
+  },
+  "parameters": {
+    "season": "2026",
+    "lookback": 90,
+    "minLeagueSamples": 30,
+    "minTeamSamples": 6,
+    "mapModes": [
+      "all",
+      "specific",
+      "draft"
+    ],
+    "kplExcludeChallengerCup": true,
+    "includeDetails": false,
+    "includeDraft": true
+  },
+  "code": {
+    "baseline": {
+      "gitCommit": "aba5aff7d3b4d6622a80f43be93f855538030dcb",
+      "path": "dist/engine.js",
+      "sha256": "377644cc69003062499ae7ca65ddaec5ffe848562fae2340f81589b8cabd78af"
+    },
+    "current": {
+      "path": "dist/engine.js",
+      "sha256": "8ea4d2cd7bd6875b75fdb6999fb688671a293f88353222c03d29651d577771aa"
+    },
+    "baselineDraft": {
+      "gitCommit": "aba5aff7d3b4d6622a80f43be93f855538030dcb",
+      "path": "dist/draft-engine.js",
+      "sha256": "679e030f4a4ddcbf248a080793f37585855c0a3c0d88ec3ed6df11f95bc74b33"
+    },
+    "currentDraft": {
+      "path": "dist/draft-engine.js",
+      "sha256": "eb9be197126376b252f970e7a03e39d6a29eb201c14d779ae25f0c7bcfd45ff6"
+    },
+    "supportingFiles": {
+      "dist/official.js": {
+        "sha256": "c4f90a72e955c9ce6741d7b1c4ff4bb82b41218cf512d085274e28db644470d4"
+      },
+      "dist/games.js": {
+        "sha256": "e6ed485ad7a10521f39c930ea161ceab084a7622c55d86d9483aad1ab6f255c8"
+      },
+      "scripts/benchmark-model.mjs": {
+        "sha256": "a43746dd629556b8074fd91950aee099b1e827f1d97ed00356abc35081ebf8ea"
+      }
+    }
+  },
+  "data": {
+    "kpl": {
+      "path": "dist/data.json",
+      "sha256": "e34c6a2c30a3cb88e3aaedb753aa5111210c6192251ae5be39e16c02b42f4f9f",
+      "snapshotRowCount": 1392,
+      "modelingRowCount": 1204,
+      "sourceCutoff": "2026-10-08T10:56:05.217236+08:00",
+      "sourceFetchedAt": "2026-10-08T11:00:28.549150+08:00"
+    },
+    "lol": {
+      "path": "dist/lol-data.json",
+      "sha256": "8b9f8e65fd7a85d3ceb7f460cf4a6ca8056a4ff15658d2a50812031dd72efb3c",
+      "snapshotRowCount": 2535,
+      "modelingRowCount": 2535,
+      "sourceCutoff": "2026-10-08T06:58:33.030063+00:00",
+      "sourceFetchedAt": "2026-10-08T06:58:33.030063+00:00"
+    }
+  },
+  "methodology": [
+    "Both models predict each target using only earlier eligible history, with all maps of that target series excluded.",
+    "predict() enforces date and available_at strictly before the target. Missing available_at follows the engine fallback to date.",
+    "Only real, backtest-eligible targets are scored; snapshot-only and uncertain-time targets are excluded.",
+    "All MAE, RMSE and coverage80 comparisons use the intersection of targets with at least 30 league maps and 6 maps per team for both models.",
+    "Newly covered and no-longer-covered targets are reported separately and excluded from paired accuracy metrics.",
+    "all predicts any map; specific passes each target map number. Both modes use the same date range and eligibility thresholds.",
+    "draft is LoL only and compares the complete old and new predictDraft paths using each target map number and its verified full lineups; both paths import their matching engine.",
+    "Draft targets require explicit available_at. Each scored forecast requires an eligible baseline and availabilityCoverage=1 throughout its training history.",
+    "Draft appliedCount and fallbackCount refer to common targets only. Valid baseline fallbacks remain in the paired comparison; no minimum draft-history gate is imposed by this script.",
+    "Series contain correlated maps; series counts are reported. No statistical significance or guaranteed future improvement is claimed.",
+    "Negative MAE/RMSE changes mean lower historical error. Coverage is an observed rate, not an accuracy score; the nominal target is 0.8.",
+    "This is a fixed-parameter evaluation, not a tuning run. A period is a holdout only if neither algorithm nor parameters were selected using it."
+  ],
+  "comparisons": [
+    {
+      "game": "kpl",
+      "mapMode": "all",
+      "candidateCount": 233,
+      "candidateSeriesCount": 54,
+      "commonTargetCount": 233,
+      "commonSeriesCount": 54,
+      "scoredFrom": "2026-08-12T17:00:00+08:00",
+      "scoredTo": "2026-10-07T20:00:00+08:00",
+      "baseline": {
+        "eligibleCount": 233,
+        "eligibleSeriesCount": 54,
+        "mae": {
+          "durationMin": 2.9569241773962807,
+          "totalKills": 4.765793991416309,
+          "killDiff": 6.450042918454936
+        },
+        "rmse": {
+          "durationMin": 3.619501048455589,
+          "totalKills": 6.166618253686155,
+          "killDiff": 7.237104796595795
+        },
+        "coverage80": {
+          "durationMin": 0.8497854077253219,
+          "totalKills": 0.8841201716738197,
+          "killDiff": 0.8927038626609443
+        }
+      },
+      "current": {
+        "eligibleCount": 233,
+        "eligibleSeriesCount": 54,
+        "mae": {
+          "durationMin": 2.9569241773962807,
+          "totalKills": 4.765793991416309,
+          "killDiff": 6.450042918454936
+        },
+        "rmse": {
+          "durationMin": 3.619501048455589,
+          "totalKills": 6.166618253686155,
+          "killDiff": 7.237104796595795
+        },
+        "coverage80": {
+          "durationMin": 0.8497854077253219,
+          "totalKills": 0.8841201716738197,
+          "killDiff": 0.8927038626609443
+        }
+      },
+      "change": {
+        "mae": {
+          "durationMin": {
+            "absolute": 0,
+            "relativePercent": 0
+          },
+          "totalKills": {
+            "absolute": 0,
+            "relativePercent": 0
+          },
+          "killDiff": {
+            "absolute": 0,
+            "relativePercent": 0
+          }
+        },
+        "rmse": {
+          "durationMin": {
+            "absolute": 0,
+            "relativePercent": 0
+          },
+          "totalKills": {
+            "absolute": 0,
+            "relativePercent": 0
+          },
+          "killDiff": {
+            "absolute": 0,
+            "relativePercent": 0
+          }
+        },
+        "coverage80": {
+          "durationMin": {
+            "absolute": 0,
+            "percentagePoints": 0
+          },
+          "totalKills": {
+            "absolute": 0,
+            "percentagePoints": 0
+          },
+          "killDiff": {
+            "absolute": 0,
+            "percentagePoints": 0
+          }
+        }
+      },
+      "newlyCovered": {
+        "count": 0,
+        "seriesCount": 0,
+        "targets": []
+      },
+      "noLongerCovered": {
+        "count": 0,
+        "seriesCount": 0,
+        "targets": []
+      }
+    },
+    {
+      "game": "kpl",
+      "mapMode": "specific",
+      "candidateCount": 233,
+      "candidateSeriesCount": 54,
+      "commonTargetCount": 203,
+      "commonSeriesCount": 54,
+      "scoredFrom": "2026-08-12T17:00:00+08:00",
+      "scoredTo": "2026-10-07T20:00:00+08:00",
+      "baseline": {
+        "eligibleCount": 203,
+        "eligibleSeriesCount": 54,
+        "mae": {
+          "durationMin": 2.940591133004925,
+          "totalKills": 4.90610837438424,
+          "killDiff": 6.618916256157635
+        },
+        "rmse": {
+          "durationMin": 3.637645713680682,
+          "totalKills": 6.344475972801705,
+          "killDiff": 7.387752346218979
+        },
+        "coverage80": {
+          "durationMin": 0.9064039408866995,
+          "totalKills": 0.9064039408866995,
+          "killDiff": 0.9211822660098522
+        }
+      },
+      "current": {
+        "eligibleCount": 233,
+        "eligibleSeriesCount": 54,
+        "mae": {
+          "durationMin": 2.945714285714285,
+          "totalKills": 4.81310344827586,
+          "killDiff": 6.525862068965519
+        },
+        "rmse": {
+          "durationMin": 3.6120025694310294,
+          "totalKills": 6.221108117280759,
+          "killDiff": 7.29670419560959
+        },
+        "coverage80": {
+          "durationMin": 0.8472906403940886,
+          "totalKills": 0.8768472906403941,
+          "killDiff": 0.8866995073891626
+        }
+      },
+      "change": {
+        "mae": {
+          "durationMin": {
+            "absolute": 0.005123152709360035,
+            "relativePercent": 0.17422186484405966
+          },
+          "totalKills": {
+            "absolute": -0.09300492610837985,
+            "relativePercent": -1.895696527903401
+          },
+          "killDiff": {
+            "absolute": -0.09305418719211644,
+            "relativePercent": -1.4058825280580889
+          }
+        },
+        "rmse": {
+          "durationMin": {
+            "absolute": -0.02564314424965275,
+            "relativePercent": -0.7049379260111177
+          },
+          "totalKills": {
+            "absolute": -0.12336785552094565,
+            "relativePercent": -1.9444924379856454
+          },
+          "killDiff": {
+            "absolute": -0.09104815060938876,
+            "relativePercent": -1.2324201779176702
+          }
+        },
+        "coverage80": {
+          "durationMin": {
+            "absolute": -0.059113300492610876,
+            "percentagePoints": -5.911330049261087
+          },
+          "totalKills": {
+            "absolute": -0.029556650246305383,
+            "percentagePoints": -2.9556650246305383
+          },
+          "killDiff": {
+            "absolute": -0.03448275862068961,
+            "percentagePoints": -3.4482758620689613
+          }
+        }
+      },
+      "newlyCovered": {
+        "count": 30,
+        "seriesCount": 20,
+        "targets": [
+          {
+            "id": "836780560_7_1786705646",
+            "series_id": "2026081401",
+            "date": "2026-08-14T17:00:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "1272988176_7_1786791379",
+            "series_id": "2026081502",
+            "date": "2026-08-15T17:00:00+08:00",
+            "map": 4
+          },
+          {
+            "id": "1272988176_8_1786792883",
+            "series_id": "2026081502",
+            "date": "2026-08-15T17:00:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "1222656528_14_1786877008",
+            "series_id": "2026081602",
+            "date": "2026-08-16T17:00:00+08:00",
+            "map": 4
+          },
+          {
+            "id": "1222656528_7_1787233016",
+            "series_id": "2026082002",
+            "date": "2026-08-20T20:00:00+08:00",
+            "map": 4
+          },
+          {
+            "id": "1222656528_8_1787234853",
+            "series_id": "2026082002",
+            "date": "2026-08-20T20:00:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "954221072_7_1787407226",
+            "series_id": "2026082203",
+            "date": "2026-08-22T20:00:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "501236240_13_1787484127",
+            "series_id": "2026082302",
+            "date": "2026-08-23T17:00:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "954221072_13_1787493155",
+            "series_id": "2026082303",
+            "date": "2026-08-23T20:00:00+08:00",
+            "map": 4
+          },
+          {
+            "id": "1222656528_9_1787834257",
+            "series_id": "2026082701",
+            "date": "2026-08-27T18:30:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "1222656528_15_1787921770",
+            "series_id": "2026082801",
+            "date": "2026-08-28T18:30:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "1222656528_22_1788010067",
+            "series_id": "2026082901",
+            "date": "2026-08-29T18:30:00+08:00",
+            "map": 6
+          },
+          {
+            "id": "1222656528_23_1788011806",
+            "series_id": "2026082901",
+            "date": "2026-08-29T18:30:00+08:00",
+            "map": 7
+          },
+          {
+            "id": "1222656528_29_1788094939",
+            "series_id": "2026083001",
+            "date": "2026-08-30T18:30:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "1222656528_30_1788096788",
+            "series_id": "2026083001",
+            "date": "2026-08-30T18:30:00+08:00",
+            "map": 6
+          },
+          {
+            "id": "1222656528_36_1788180017",
+            "series_id": "2026083101",
+            "date": "2026-08-31T18:30:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "1222656528_37_1788181880",
+            "series_id": "2026083101",
+            "date": "2026-08-31T18:30:00+08:00",
+            "map": 6
+          },
+          {
+            "id": "1222656528_38_1788184119",
+            "series_id": "2026083101",
+            "date": "2026-08-31T18:30:00+08:00",
+            "map": 7
+          },
+          {
+            "id": "1222656528_52_1788354771",
+            "series_id": "2026090201",
+            "date": "2026-09-02T18:30:00+08:00",
+            "map": 6
+          },
+          {
+            "id": "1222656528_58_1788439641",
+            "series_id": "2026090301",
+            "date": "2026-09-03T18:30:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "1222656528_59_1788441844",
+            "series_id": "2026090301",
+            "date": "2026-09-03T18:30:00+08:00",
+            "map": 6
+          },
+          {
+            "id": "1222656528_60_1788443973",
+            "series_id": "2026090301",
+            "date": "2026-09-03T18:30:00+08:00",
+            "map": 7
+          },
+          {
+            "id": "1222656528_79_1788700709",
+            "series_id": "2026090601",
+            "date": "2026-09-06T18:30:00+08:00",
+            "map": 6
+          },
+          {
+            "id": "1222656528_80_1788702381",
+            "series_id": "2026090601",
+            "date": "2026-09-06T18:30:00+08:00",
+            "map": 7
+          },
+          {
+            "id": "1054884368_28_1789220888",
+            "series_id": "2026091201",
+            "date": "2026-09-12T18:00:00+08:00",
+            "map": 6
+          },
+          {
+            "id": "1054884368_29_1789223641",
+            "series_id": "2026091201",
+            "date": "2026-09-12T18:00:00+08:00",
+            "map": 7
+          },
+          {
+            "id": "1054884368_76_1791111735",
+            "series_id": "2026100402",
+            "date": "2026-10-04T17:00:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "1054884368_85_1791188340",
+            "series_id": "2026100501",
+            "date": "2026-10-05T14:00:00+08:00",
+            "map": 5
+          },
+          {
+            "id": "1054884368_104_1791294242",
+            "series_id": "2026100603",
+            "date": "2026-10-06T20:00:00+08:00",
+            "map": 4
+          },
+          {
+            "id": "1054884368_117_1791383435",
+            "series_id": "2026100703",
+            "date": "2026-10-07T20:00:00+08:00",
+            "map": 5
+          }
+        ]
+      },
+      "noLongerCovered": {
+        "count": 0,
+        "seriesCount": 0,
+        "targets": []
+      }
+    },
+    {
+      "game": "lol",
+      "mapMode": "all",
+      "candidateCount": 219,
+      "candidateSeriesCount": 83,
+      "commonTargetCount": 187,
+      "commonSeriesCount": 66,
+      "scoredFrom": "2026-08-01T15:13:04+08:00",
+      "scoredTo": "2026-10-06T11:26:20.071000+00:00",
+      "baseline": {
+        "eligibleCount": 187,
+        "eligibleSeriesCount": 66,
+        "mae": {
+          "durationMin": 4.0218181818181815,
+          "totalKills": 6.346363636363634,
+          "killDiff": 10.082299465240645
+        },
+        "rmse": {
+          "durationMin": 5.088174224026368,
+          "totalKills": 7.931351551479423,
+          "killDiff": 11.567219564320451
+        },
+        "coverage80": {
+          "durationMin": 0.8235294117647058,
+          "totalKills": 0.9144385026737968,
+          "killDiff": 0.8609625668449198
+        }
+      },
+      "current": {
+        "eligibleCount": 187,
+        "eligibleSeriesCount": 66,
+        "mae": {
+          "durationMin": 4.0218181818181815,
+          "totalKills": 6.346363636363634,
+          "killDiff": 10.082299465240645
+        },
+        "rmse": {
+          "durationMin": 5.088174224026368,
+          "totalKills": 7.931351551479423,
+          "killDiff": 11.567219564320451
+        },
+        "coverage80": {
+          "durationMin": 0.8235294117647058,
+          "totalKills": 0.9144385026737968,
+          "killDiff": 0.8609625668449198
+        }
+      },
+      "change": {
+        "mae": {
+          "durationMin": {
+            "absolute": 0,
+            "relativePercent": 0
+          },
+          "totalKills": {
+            "absolute": 0,
+            "relativePercent": 0
+          },
+          "killDiff": {
+            "absolute": 0,
+            "relativePercent": 0
+          }
+        },
+        "rmse": {
+          "durationMin": {
+            "absolute": 0,
+            "relativePercent": 0
+          },
+          "totalKills": {
+            "absolute": 0,
+            "relativePercent": 0
+          },
+          "killDiff": {
+            "absolute": 0,
+            "relativePercent": 0
+          }
+        },
+        "coverage80": {
+          "durationMin": {
+            "absolute": 0,
+            "percentagePoints": 0
+          },
+          "totalKills": {
+            "absolute": 0,
+            "percentagePoints": 0
+          },
+          "killDiff": {
+            "absolute": 0,
+            "percentagePoints": 0
+          }
+        }
+      },
+      "newlyCovered": {
+        "count": 0,
+        "seriesCount": 0,
+        "targets": []
+      },
+      "noLongerCovered": {
+        "count": 0,
+        "seriesCount": 0,
+        "targets": []
+      }
+    },
+    {
+      "game": "lol",
+      "mapMode": "specific",
+      "candidateCount": 219,
+      "candidateSeriesCount": 83,
+      "commonTargetCount": 143,
+      "commonSeriesCount": 59,
+      "scoredFrom": "2026-08-01T15:13:04+08:00",
+      "scoredTo": "2026-10-06T11:26:20.071000+00:00",
+      "baseline": {
+        "eligibleCount": 143,
+        "eligibleSeriesCount": 59,
+        "mae": {
+          "durationMin": 3.6543589743589733,
+          "totalKills": 6.8152447552447555,
+          "killDiff": 10.483356643356647
+        },
+        "rmse": {
+          "durationMin": 4.575402224581521,
+          "totalKills": 8.482678772701414,
+          "killDiff": 11.84250463727653
+        },
+        "coverage80": {
+          "durationMin": 0.8671328671328671,
+          "totalKills": 0.9020979020979021,
+          "killDiff": 0.8741258741258742
+        }
+      },
+      "current": {
+        "eligibleCount": 187,
+        "eligibleSeriesCount": 66,
+        "mae": {
+          "durationMin": 3.596573426573426,
+          "totalKills": 6.662867132867129,
+          "killDiff": 10.353846153846158
+        },
+        "rmse": {
+          "durationMin": 4.490308124746793,
+          "totalKills": 8.302580229153973,
+          "killDiff": 11.932618456013044
+        },
+        "coverage80": {
+          "durationMin": 0.8461538461538461,
+          "totalKills": 0.9020979020979021,
+          "killDiff": 0.8391608391608392
+        }
+      },
+      "change": {
+        "mae": {
+          "durationMin": {
+            "absolute": -0.05778554778554712,
+            "relativePercent": -1.5812772689000387
+          },
+          "totalKills": {
+            "absolute": -0.1523776223776263,
+            "relativePercent": -2.2358349237620923
+          },
+          "killDiff": {
+            "absolute": -0.12951048951048882,
+            "relativePercent": -1.2353914296387103
+          }
+        },
+        "rmse": {
+          "durationMin": {
+            "absolute": -0.08509409983472782,
+            "relativePercent": -1.859816812990922
+          },
+          "totalKills": {
+            "absolute": -0.18009854354744093,
+            "relativePercent": -2.1231328967333596
+          },
+          "killDiff": {
+            "absolute": 0.0901138187365138,
+            "relativePercent": 0.76093547350502
+          }
+        },
+        "coverage80": {
+          "durationMin": {
+            "absolute": -0.020979020979020935,
+            "percentagePoints": -2.0979020979020935
+          },
+          "totalKills": {
+            "absolute": 0,
+            "percentagePoints": 0
+          },
+          "killDiff": {
+            "absolute": -0.034965034965035,
+            "percentagePoints": -3.4965034965035002
+          }
+        }
+      },
+      "newlyCovered": {
+        "count": 44,
+        "seriesCount": 27,
+        "targets": [
+          {
+            "id": "lol-tencent-13387-3",
+            "series_id": "lol-tencent-13387",
+            "date": "2026-08-01T17:11:40+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13390-1",
+            "series_id": "lol-tencent-13390",
+            "date": "2026-08-02T18:15:31+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13390-2",
+            "series_id": "lol-tencent-13390",
+            "date": "2026-08-02T18:15:31+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13395-3",
+            "series_id": "lol-tencent-13395",
+            "date": "2026-08-06T18:22:31+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13400-1",
+            "series_id": "lol-tencent-13400",
+            "date": "2026-08-08T15:20:09+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13400-2",
+            "series_id": "lol-tencent-13400",
+            "date": "2026-08-08T15:20:09+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13403-1",
+            "series_id": "lol-tencent-13403",
+            "date": "2026-08-09T15:15:30+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13403-2",
+            "series_id": "lol-tencent-13403",
+            "date": "2026-08-09T15:15:30+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13406-3",
+            "series_id": "lol-tencent-13406",
+            "date": "2026-08-12T17:18:29+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13408-1",
+            "series_id": "lol-tencent-13408",
+            "date": "2026-08-13T15:13:35+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13408-2",
+            "series_id": "lol-tencent-13408",
+            "date": "2026-08-13T15:13:35+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13408-3",
+            "series_id": "lol-tencent-13408",
+            "date": "2026-08-13T15:13:35+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13414-1",
+            "series_id": "lol-tencent-13414",
+            "date": "2026-08-15T15:13:13+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13414-2",
+            "series_id": "lol-tencent-13414",
+            "date": "2026-08-15T15:13:13+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13414-3",
+            "series_id": "lol-tencent-13414",
+            "date": "2026-08-15T15:13:13+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13418-1",
+            "series_id": "lol-tencent-13418",
+            "date": "2026-08-16T18:11:59+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13418-2",
+            "series_id": "lol-tencent-13418",
+            "date": "2026-08-16T18:11:59+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13418-3",
+            "series_id": "lol-tencent-13418",
+            "date": "2026-08-16T18:11:59+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13422-3",
+            "series_id": "lol-tencent-13422",
+            "date": "2026-08-19T15:13:05+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13429-1",
+            "series_id": "lol-tencent-13429",
+            "date": "2026-08-22T18:08:15+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13429-2",
+            "series_id": "lol-tencent-13429",
+            "date": "2026-08-22T18:08:15+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13432-3",
+            "series_id": "lol-tencent-13432",
+            "date": "2026-08-23T17:33:11+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13492-3",
+            "series_id": "lol-tencent-13492",
+            "date": "2026-08-28T14:12:13+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13493-3",
+            "series_id": "lol-tencent-13493",
+            "date": "2026-08-28T17:13:37+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13494-4",
+            "series_id": "lol-tencent-13494",
+            "date": "2026-08-29T17:14:18+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13494-5",
+            "series_id": "lol-tencent-13494",
+            "date": "2026-08-29T17:14:18+08:00",
+            "map": 5
+          },
+          {
+            "id": "lol-tencent-13495-4",
+            "series_id": "lol-tencent-13495",
+            "date": "2026-08-30T17:15:09+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13497-4",
+            "series_id": "lol-tencent-13497",
+            "date": "2026-09-03T17:18:59+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13496-4",
+            "series_id": "lol-tencent-13496",
+            "date": "2026-09-04T17:12:53+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13498-3",
+            "series_id": "lol-tencent-13498",
+            "date": "2026-09-05T14:14:28+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13498-4",
+            "series_id": "lol-tencent-13498",
+            "date": "2026-09-05T14:14:28+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13498-5",
+            "series_id": "lol-tencent-13498",
+            "date": "2026-09-05T14:14:28+08:00",
+            "map": 5
+          },
+          {
+            "id": "lol-tencent-13499-3",
+            "series_id": "lol-tencent-13499",
+            "date": "2026-09-05T19:23:05+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13500-3",
+            "series_id": "lol-tencent-13500",
+            "date": "2026-09-06T14:14:37+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13500-4",
+            "series_id": "lol-tencent-13500",
+            "date": "2026-09-06T14:14:37+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13501-3",
+            "series_id": "lol-tencent-13501",
+            "date": "2026-09-06T18:03:04+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13501-4",
+            "series_id": "lol-tencent-13501",
+            "date": "2026-09-06T18:03:04+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13501-5",
+            "series_id": "lol-tencent-13501",
+            "date": "2026-09-06T18:03:04+08:00",
+            "map": 5
+          },
+          {
+            "id": "lol-tencent-13504-4",
+            "series_id": "lol-tencent-13504",
+            "date": "2026-09-12T16:58:05+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13504-5",
+            "series_id": "lol-tencent-13504",
+            "date": "2026-09-12T16:58:05+08:00",
+            "map": 5
+          },
+          {
+            "id": "lol-tencent-13505-4",
+            "series_id": "lol-tencent-13505",
+            "date": "2026-09-13T17:06:27+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13506-4",
+            "series_id": "lol-tencent-13506",
+            "date": "2026-09-17T17:11:42+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13507-4",
+            "series_id": "lol-tencent-13507",
+            "date": "2026-09-18T17:12:27+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13508-4",
+            "series_id": "lol-tencent-13508",
+            "date": "2026-09-19T17:12:38+08:00",
+            "map": 4
+          }
+        ]
+      },
+      "noLongerCovered": {
+        "count": 0,
+        "seriesCount": 0,
+        "targets": []
+      }
+    },
+    {
+      "game": "lol",
+      "mapMode": "draft",
+      "candidateCount": 219,
+      "candidateSeriesCount": 83,
+      "commonTargetCount": 143,
+      "commonSeriesCount": 59,
+      "scoredFrom": "2026-08-01T15:13:04+08:00",
+      "scoredTo": "2026-10-06T11:26:20.071000+00:00",
+      "baseline": {
+        "eligibleCount": 143,
+        "eligibleSeriesCount": 59,
+        "mae": {
+          "durationMin": 3.720256410256411,
+          "totalKills": 6.673216783216784,
+          "killDiff": 10.46230769230769
+        },
+        "rmse": {
+          "durationMin": 4.615348460749351,
+          "totalKills": 8.299645497526708,
+          "killDiff": 11.95301363527353
+        },
+        "coverage80": {
+          "durationMin": 0.8461538461538461,
+          "totalKills": 0.916083916083916,
+          "killDiff": 0.8741258741258742
+        },
+        "appliedCount": 143,
+        "fallbackCount": 0
+      },
+      "current": {
+        "eligibleCount": 187,
+        "eligibleSeriesCount": 66,
+        "mae": {
+          "durationMin": 3.633613053613053,
+          "totalKills": 6.307412587412588,
+          "killDiff": 10.569650349650345
+        },
+        "rmse": {
+          "durationMin": 4.535363781542184,
+          "totalKills": 7.983863533595554,
+          "killDiff": 12.223203601908386
+        },
+        "coverage80": {
+          "durationMin": 0.8321678321678322,
+          "totalKills": 0.8811188811188811,
+          "killDiff": 0.8251748251748252
+        },
+        "appliedCount": 143,
+        "fallbackCount": 0
+      },
+      "change": {
+        "mae": {
+          "durationMin": {
+            "absolute": -0.08664335664335798,
+            "relativePercent": -2.3289619609145773
+          },
+          "totalKills": {
+            "absolute": -0.36580419580419576,
+            "relativePercent": -5.481677093485072
+          },
+          "killDiff": {
+            "absolute": 0.10734265734265591,
+            "relativePercent": 1.025994077975545
+          }
+        },
+        "rmse": {
+          "durationMin": {
+            "absolute": -0.07998467920716656,
+            "relativePercent": -1.7330149584020793
+          },
+          "totalKills": {
+            "absolute": -0.3157819639311539,
+            "relativePercent": -3.8047644809077297
+          },
+          "killDiff": {
+            "absolute": 0.27018996663485595,
+            "relativePercent": 2.2604338527442147
+          }
+        },
+        "coverage80": {
+          "durationMin": {
+            "absolute": -0.013986013986013957,
+            "percentagePoints": -1.3986013986013957
+          },
+          "totalKills": {
+            "absolute": -0.03496503496503489,
+            "percentagePoints": -3.496503496503489
+          },
+          "killDiff": {
+            "absolute": -0.04895104895104896,
+            "percentagePoints": -4.895104895104896
+          }
+        }
+      },
+      "newlyCovered": {
+        "count": 44,
+        "seriesCount": 27,
+        "targets": [
+          {
+            "id": "lol-tencent-13387-3",
+            "series_id": "lol-tencent-13387",
+            "date": "2026-08-01T17:11:40+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13390-1",
+            "series_id": "lol-tencent-13390",
+            "date": "2026-08-02T18:15:31+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13390-2",
+            "series_id": "lol-tencent-13390",
+            "date": "2026-08-02T18:15:31+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13395-3",
+            "series_id": "lol-tencent-13395",
+            "date": "2026-08-06T18:22:31+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13400-1",
+            "series_id": "lol-tencent-13400",
+            "date": "2026-08-08T15:20:09+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13400-2",
+            "series_id": "lol-tencent-13400",
+            "date": "2026-08-08T15:20:09+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13403-1",
+            "series_id": "lol-tencent-13403",
+            "date": "2026-08-09T15:15:30+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13403-2",
+            "series_id": "lol-tencent-13403",
+            "date": "2026-08-09T15:15:30+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13406-3",
+            "series_id": "lol-tencent-13406",
+            "date": "2026-08-12T17:18:29+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13408-1",
+            "series_id": "lol-tencent-13408",
+            "date": "2026-08-13T15:13:35+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13408-2",
+            "series_id": "lol-tencent-13408",
+            "date": "2026-08-13T15:13:35+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13408-3",
+            "series_id": "lol-tencent-13408",
+            "date": "2026-08-13T15:13:35+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13414-1",
+            "series_id": "lol-tencent-13414",
+            "date": "2026-08-15T15:13:13+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13414-2",
+            "series_id": "lol-tencent-13414",
+            "date": "2026-08-15T15:13:13+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13414-3",
+            "series_id": "lol-tencent-13414",
+            "date": "2026-08-15T15:13:13+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13418-1",
+            "series_id": "lol-tencent-13418",
+            "date": "2026-08-16T18:11:59+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13418-2",
+            "series_id": "lol-tencent-13418",
+            "date": "2026-08-16T18:11:59+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13418-3",
+            "series_id": "lol-tencent-13418",
+            "date": "2026-08-16T18:11:59+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13422-3",
+            "series_id": "lol-tencent-13422",
+            "date": "2026-08-19T15:13:05+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13429-1",
+            "series_id": "lol-tencent-13429",
+            "date": "2026-08-22T18:08:15+08:00",
+            "map": 1
+          },
+          {
+            "id": "lol-tencent-13429-2",
+            "series_id": "lol-tencent-13429",
+            "date": "2026-08-22T18:08:15+08:00",
+            "map": 2
+          },
+          {
+            "id": "lol-tencent-13432-3",
+            "series_id": "lol-tencent-13432",
+            "date": "2026-08-23T17:33:11+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13492-3",
+            "series_id": "lol-tencent-13492",
+            "date": "2026-08-28T14:12:13+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13493-3",
+            "series_id": "lol-tencent-13493",
+            "date": "2026-08-28T17:13:37+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13494-4",
+            "series_id": "lol-tencent-13494",
+            "date": "2026-08-29T17:14:18+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13494-5",
+            "series_id": "lol-tencent-13494",
+            "date": "2026-08-29T17:14:18+08:00",
+            "map": 5
+          },
+          {
+            "id": "lol-tencent-13495-4",
+            "series_id": "lol-tencent-13495",
+            "date": "2026-08-30T17:15:09+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13497-4",
+            "series_id": "lol-tencent-13497",
+            "date": "2026-09-03T17:18:59+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13496-4",
+            "series_id": "lol-tencent-13496",
+            "date": "2026-09-04T17:12:53+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13498-3",
+            "series_id": "lol-tencent-13498",
+            "date": "2026-09-05T14:14:28+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13498-4",
+            "series_id": "lol-tencent-13498",
+            "date": "2026-09-05T14:14:28+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13498-5",
+            "series_id": "lol-tencent-13498",
+            "date": "2026-09-05T14:14:28+08:00",
+            "map": 5
+          },
+          {
+            "id": "lol-tencent-13499-3",
+            "series_id": "lol-tencent-13499",
+            "date": "2026-09-05T19:23:05+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13500-3",
+            "series_id": "lol-tencent-13500",
+            "date": "2026-09-06T14:14:37+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13500-4",
+            "series_id": "lol-tencent-13500",
+            "date": "2026-09-06T14:14:37+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13501-3",
+            "series_id": "lol-tencent-13501",
+            "date": "2026-09-06T18:03:04+08:00",
+            "map": 3
+          },
+          {
+            "id": "lol-tencent-13501-4",
+            "series_id": "lol-tencent-13501",
+            "date": "2026-09-06T18:03:04+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13501-5",
+            "series_id": "lol-tencent-13501",
+            "date": "2026-09-06T18:03:04+08:00",
+            "map": 5
+          },
+          {
+            "id": "lol-tencent-13504-4",
+            "series_id": "lol-tencent-13504",
+            "date": "2026-09-12T16:58:05+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13504-5",
+            "series_id": "lol-tencent-13504",
+            "date": "2026-09-12T16:58:05+08:00",
+            "map": 5
+          },
+          {
+            "id": "lol-tencent-13505-4",
+            "series_id": "lol-tencent-13505",
+            "date": "2026-09-13T17:06:27+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13506-4",
+            "series_id": "lol-tencent-13506",
+            "date": "2026-09-17T17:11:42+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13507-4",
+            "series_id": "lol-tencent-13507",
+            "date": "2026-09-18T17:12:27+08:00",
+            "map": 4
+          },
+          {
+            "id": "lol-tencent-13508-4",
+            "series_id": "lol-tencent-13508",
+            "date": "2026-09-19T17:12:38+08:00",
+            "map": 4
+          }
+        ]
+      },
+      "noLongerCovered": {
+        "count": 0,
+        "seriesCount": 0,
+        "targets": []
+      }
+    }
+  ]
+}
